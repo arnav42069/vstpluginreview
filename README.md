@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Plugin Signal — Codex-ready editorial website starter
 
 This archive contains a full build PRD, a research/publishing brief, a complete Codex implementation prompt and **five full Markdown articles**.
@@ -27,3 +28,7 @@ The articles are substantive drafts. They do **not** claim that plugins were per
 - https://developers.google.com/search/docs/appearance/reviews-system
 - https://developers.google.com/search/docs/appearance/ai-features
 - Official vendor URLs are inside article 03.
+=======
+# vstpluginreview
+VST Plugin Review Website
+>>>>>>> 3676bed9bc67106939f70ad5750ce180602bfb1c
