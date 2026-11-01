@@ -1,0 +1,10 @@
+node_modules/
+.output/
+.tanstack/
+.vercel/
+dist/
+src/generated/
+.env
+.env.local
+test-results/
+playwright-report/
