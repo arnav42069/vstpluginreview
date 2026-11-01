@@ -969,3 +969,8 @@ iframe {
   aspect-ratio: 16/9;
   object-fit: cover;
 }
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}

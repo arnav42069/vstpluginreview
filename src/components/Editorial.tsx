@@ -1,3 +1,4 @@
+import { Arrow } from "./Arrow";
 import type { ReactNode } from "react";
 import { classifyLink, outboundEvent } from "../lib/links";
 export function Callout({
@@ -62,7 +63,7 @@ export function ProductMention({
           )
         }
       >
-        Visit {name}'s official website ↗
+        Visit {name}'s official website <Arrow />
       </a>
     </aside>
   );
@@ -82,7 +83,9 @@ export function LinkCard({
   return (
     <aside className="author-box">
       <h3>
-        <a href={href}>{title} ↗</a>
+        <a href={href}>
+          {title} <Arrow />
+        </a>
       </h3>
       {children}
     </aside>

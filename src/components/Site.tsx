@@ -1,3 +1,4 @@
+import { Arrow } from "./Arrow";
 import { AudioPlayer, AudioABComparison, YouTubeEmbed } from "./Media";
 import { useEffect, useState } from "react";
 import type { loadSite } from "../lib/data";
@@ -139,15 +140,11 @@ function Card({
 }) {
   return (
     <article className="card">
-      <a
-        className={`card-art art-${index % 3}`}
-        href={`${preview ? "/preview" : ""}/articles/${a.slug}`}
-        aria-label={a.title}
-      >
+      <div className={`card-art art-${index % 3}`}>
         <Wave />
         <span>{a.category}</span>
-        <b>{String(index + 1).padStart(2, "0")}</b>
-      </a>
+        <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+      </div>
       <div className="card-body">
         <div className="meta">
           {a.skillLevel} <span>·</span> {a.readingMinutes} MIN READ{" "}
@@ -163,7 +160,10 @@ function Card({
           className="text-link"
           href={`${preview ? "/preview" : ""}/articles/${a.slug}`}
         >
-          Read the guide <span aria-hidden="true">↗</span>
+          Read the guide{" "}
+          <span aria-hidden="true">
+            <Arrow />
+          </span>
         </a>
       </div>
     </article>
@@ -287,7 +287,9 @@ function Directory({ path, data }: { path: string; data: Data }) {
               ? "We will publish reviews only after documented hands-on evaluation. No ratings or testing claims are available yet."
               : "Our launch guides are being reviewed. Published articles will appear here after approval."}
           </p>
-          <a href="/editorial-policy">Read our editorial standards ↗</a>
+          <a href="/editorial-policy">
+            Read our editorial standards <Arrow />
+          </a>
         </div>
       )}
     </>
@@ -409,7 +411,9 @@ function ArticleView({ a, data }: { a: Article; data: Data }) {
           these educational drafts do not represent independent hands-on
           reviews.
         </p>
-        <a href="/contact">Suggest a correction ↗</a>
+        <a href="/contact">
+          Suggest a correction <Arrow />
+        </a>
       </div>
       {related.length > 0 && (
         <section>
@@ -694,12 +698,12 @@ export function Site({ path, data }: { path: string; data: Data }) {
         Skip to content
       </a>
       <header className="site-header">
-        <a className="brand" href="/" aria-label="VST Plugin Review home">
+        <a className="brand" href="/">
           <span className="brand-icon" aria-hidden="true">
             ∿
           </span>
           <span>
-            VST<span className="brand-light">PLUGIN</span>
+            VST <span className="brand-light">PLUGIN</span>
             <br />
             <small>REVIEW</small>
           </span>
@@ -711,7 +715,10 @@ export function Site({ path, data }: { path: string; data: Data }) {
           <a href="/free-tools">Free tools</a>
         </nav>
         <a className="header-search" href="/articles">
-          Search <span aria-hidden="true">↗</span>
+          Search{" "}
+          <span aria-hidden="true">
+            <Arrow />
+          </span>
         </a>
       </header>
       {data.preview && (
@@ -743,7 +750,10 @@ export function Site({ path, data }: { path: string; data: Data }) {
                 </p>
                 <div className="hero-actions">
                   <a className="button" href="/articles">
-                    Explore the publication <span>↗</span>
+                    Explore the publication{" "}
+                    <span>
+                      <Arrow />
+                    </span>
                   </a>
                   <a className="text-link" href="/editorial-policy">
                     Our editorial approach
@@ -777,7 +787,9 @@ export function Site({ path, data }: { path: string; data: Data }) {
                   <span>0{i + 1}</span>
                   <h2>{c.label}</h2>
                   <p>{c.description}</p>
-                  <b aria-hidden="true">↗</b>
+                  <b aria-hidden="true">
+                    <Arrow />
+                  </b>
                 </a>
               ))}
             </section>
@@ -787,7 +799,9 @@ export function Site({ path, data }: { path: string; data: Data }) {
                   <span className="eyebrow">FROM THE EDITORIAL DESK</span>
                   <h2>The latest signal</h2>
                 </div>
-                <a href="/articles">All articles ↗</a>
+                <a href="/articles">
+                  All articles <Arrow />
+                </a>
               </div>
               {data.articles.length ? (
                 <div className="card-grid">
@@ -809,7 +823,9 @@ export function Site({ path, data }: { path: string; data: Data }) {
                       clarity and drum dynamics. Every article will pass an
                       editorial check before it appears here.
                     </p>
-                    <a href="/editorial-policy">See what goes into a guide ↗</a>
+                    <a href="/editorial-policy">
+                      See what goes into a guide <Arrow />
+                    </a>
                   </div>
                   <span className="launch-mark" aria-hidden="true">
                     ∿
@@ -832,7 +848,7 @@ export function Site({ path, data }: { path: string; data: Data }) {
                   and the context that makes a comparison useful.
                 </p>
                 <a className="text-link" href="/disclosures">
-                  Transparent about our interests ↗
+                  Transparent about our interests <Arrow />
                 </a>
               </div>
             </section>

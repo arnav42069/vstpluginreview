@@ -141,7 +141,7 @@ test("WCAG automated checks on representative routes", async ({ page }) => {
   ]) {
     await page.goto(path);
     const result = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(result.violations).toEqual([]);
   }
