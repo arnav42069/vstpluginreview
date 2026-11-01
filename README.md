@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Plugin Signal — Codex-ready editorial website starter
 
 This archive contains a full build PRD, a research/publishing brief, a complete Codex implementation prompt and **five full Markdown articles**.
