@@ -1,6 +1,6 @@
 # Editorial workflow
 
-The canonical website content is `content/articles/*.mdx`. The supplied `articles/*.md` files remain unmodified reference originals. All five imports retain `status: ready`. Dates in these files are draft placeholders, not claims of publication.
+The canonical website content is `content/articles/*.mdx`. The supplied `articles/*.md` files remain unmodified reference originals. All five original imports retain `status: ready`; four new source-backed guides are published at the owner’s explicit request. Dates in these files are draft placeholders, not claims of publication.
 
 ## Run and review
 
@@ -51,8 +51,16 @@ No newsletter provider, subscriber database or analytics service is configured. 
 
 ## Vercel
 
-Use this repository root as the project root, Node 24, build `npm run build`. Nitro auto-detects Vercel; a local compatibility check is `NITRO_PRESET=vercel npm run build`, which generates `.vercel/output` without deploying. Set `SITE_URL=https://vstpluginreview.com`. On protected staging deployments set `EDITORIAL_PREVIEW=true`; production preview is always disabled. `vercel.json` adds security headers. Connect the domain and deploy only after owner approval. No deployment or domain configuration is performed by the setup scripts.
+Use this repository root as the project root, Node 24, build `npm run build`. Nitro auto-detects Vercel; a local compatibility check is `NITRO_PRESET=vercel npm run build`, which generates `.vercel/output` without deploying. Set `SITE_URL` to the verified production origin (currently `https://vstpluginreview.vercel.app`). Without an override, the runtime uses `VERCEL_PROJECT_PRODUCTION_URL` when available. On protected staging deployments set `EDITORIAL_PREVIEW=true`; production preview is always disabled. `vercel.json` adds security headers and explicitly selects `NITRO_PRESET=vercel` for builds. Connect the domain and deploy only after owner approval. No deployment or domain configuration is performed by the setup scripts.
 
 For a local Node production build, run `npm run build`, then `SITE_ENV=production npm run preview`. Every nonproduction page is noindexed, with robots disallowing crawling. Production robots allow public pages and disallow preview. Feeds and sitemap always include only published articles. There are deliberately no last-modification dates on static policy pages because no verified editorial dates were supplied.
 
 The Vite integration uses Nitro's current pinned `3.0.261029-rc` adapter (the available Nitro 3 line is prerelease). Both Node and Vercel output builds are validated locally; an actual protected Vercel preview and field Core Web Vitals still need verification after deployment is authorized. Automated accessibility checks complement, but do not replace, human screen-reader testing.
+
+## Rich editorial components
+
+MDX can use `PluginReviewSection`, `PluginComparisonTable`, `PluginFeatureList`, `ProsCons`, `TutorialSteps`, `ArticleImage`, `EditorialDisclosure` and `AudioComparisonPlayer` without imports. Layout, header, TOC and related-article UI remain reusable React components. Markdown tables automatically receive focusable overflow containers. Images must be local `/media/` assets, have descriptive alt text and numeric dimensions; validation checks files exist. Store source URLs, licenses and attribution in `public/media/LICENSES.md`. Audio comparison requires actual supplied, credited, level-matched recordings; absent media renders nothing.
+
+Optional `excerpt`, `heroImage`, `heroAlt`, `seoTitle` and `seoDescription` frontmatter provide editorial and social customization. Featured images are included in OpenGraph, Twitter cards and BlogPosting JSON-LD. Never add review ratings without genuine review evidence.
+
+Theme preference is stored only as `vst-review-theme=light|dark` in localStorage. A head script sets it before paint. Missing/invalid/blocked storage falls back to light, independent of OS theme. Semantic tokens cover all editorial surfaces.

@@ -34,14 +34,14 @@ The articles are substantive drafts. They do **not** claim that plugins were per
 
 ## Website development
 
-The standalone website is now implemented with TanStack Start, React, TypeScript, Tailwind CSS and build-time MDX. The configured canonical destination is `https://vstpluginreview.com`; nothing is automatically deployed.
+The standalone website is now implemented with TanStack Start, React, TypeScript, Tailwind CSS and build-time MDX. The canonical URL uses `SITE_URL`, then Vercel’s production hostname, and otherwise `https://vstpluginreview.vercel.app`.
 
 ```sh
 npm ci
 EDITORIAL_PREVIEW=true npm run dev
 ```
 
-Use Node 24. Public pages contain only approved, published content. All five supplied articles remain `ready` and are accessible at `/preview` only with the nonproduction preview setting above. No audio assets or testing claims have been invented.
+Use Node 24. The publication defaults to light mode, with a persistent Light/Dark choice in navigation Settings. Four new long-form guides are published; the five original supplied articles remain `ready` and are accessible at `/preview` only with the nonproduction preview setting above. No audio assets or testing claims have been invented.
 
 ```sh
 npm run content:validate
@@ -55,3 +55,5 @@ npm run test:e2e
 The Playwright suite uses `/usr/bin/chromium` by default in this cloud machine. Elsewhere run `npx playwright install --with-deps chromium` and `CHROMIUM_PATH=bundled npm run test:e2e`, or set `CHROMIUM_PATH` to a local Chromium executable. CI uses the bundled browser. Test screenshots are generated under ignored `test-results/`.
 
 See [publishing, media, environment and Vercel instructions](docs/PUBLISHING.md) and [.env.example](.env.example). Newsletter and analytics remain unconnected; the newsletter clearly states it is not accepting subscriptions. The deployment domain, editorial approval, vendor fact-checking and any future provider credentials remain owner actions.
+
+See [redesign delivery and research notes](docs/REDESIGN.md) for the new articles, theme behavior and verification limits.

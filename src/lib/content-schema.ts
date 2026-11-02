@@ -2,6 +2,7 @@ import { z } from "zod";
 export const articleSchema = z.object({
   title: z.string().min(10),
   description: z.string().min(20),
+  excerpt: z.string().min(20).optional(),
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   date: z.iso.date(),
   updated: z.iso.date().optional(),

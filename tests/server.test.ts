@@ -12,8 +12,8 @@ describe("server publication boundary", () => {
     vi.stubEnv("EDITORIAL_PREVIEW", "true");
     const site = await import("../src/lib/site.server");
     expect(site.previewEnabled).toBe(false);
-    expect(site.getArticles(true)).toHaveLength(0);
-    for (const a of raw) {
+    expect(site.getArticles(true)).toHaveLength(4);
+    for (const a of raw.filter((a) => a.status !== "published")) {
       expect(site.sitemap()).not.toContain(a.slug);
       expect(site.rss()).not.toContain(a.slug);
     }
@@ -29,14 +29,14 @@ describe("server publication boundary", () => {
     vi.stubEnv("VERCEL_ENV", "preview");
     vi.stubEnv("EDITORIAL_PREVIEW", "false");
     const site = await import("../src/lib/site.server");
-    expect(site.getArticles(true)).toEqual([]);
+    expect(site.getArticles(true)).toHaveLength(4);
   });
   it("published sitemap and RSS contain canonical article records", async () => {
     vi.stubEnv("SITE_URL", "https://vstpluginreview.com");
     vi.doMock("../src/generated/articles.json", () => ({
       default: [
         { ...raw[0], status: "published", title: "Sound & <signal>" },
-        ...raw.slice(1),
+        ...raw.slice(1).map((a) => ({ ...a, status: "ready" })),
       ],
     }));
     const site = await import("../src/lib/site.server");

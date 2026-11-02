@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
+import { themeInitializer } from "../components/ThemeSettings";
 import styles from "../styles.css?url";
 export const Route = createRootRoute({
   head: () => ({
@@ -26,8 +27,9 @@ export const Route = createRootRoute({
 });
 function Root() {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
         <HeadContent />
       </head>
       <body>

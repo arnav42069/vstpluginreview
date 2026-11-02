@@ -16,10 +16,12 @@ import {
 } from "../src/components/Media";
 import { seo, validPath } from "../src/components/Site";
 const all = articles as Article[];
+const drafts = all.filter((a) => a.status === "ready");
+const published = all.filter((a) => a.status === "published");
 describe("editorial publishing", () => {
   it("preserves five full unpublished articles", () => {
-    expect(all).toHaveLength(5);
-    for (const a of all) {
+    expect(drafts).toHaveLength(5);
+    for (const a of drafts) {
       expect(articleSchema.safeParse(a).success).toBe(true);
       expect(a.status).toBe("ready");
       expect(a.html.length).toBeGreaterThan(4000);
@@ -27,14 +29,12 @@ describe("editorial publishing", () => {
     }
   });
   it("does not leak drafts into public selection", () => {
-    expect(visibleArticles(all)).toEqual([]);
-    expect(visibleArticles(all, true)).toHaveLength(5);
-    expect(
-      visibleArticles([{ ...all[0], status: "published" }, ...all.slice(1)]),
-    ).toHaveLength(1);
+    expect(visibleArticles(all)).toEqual(published);
+    expect(visibleArticles(all, true)).toHaveLength(9);
+    expect(visibleArticles(drafts)).toHaveLength(0);
   });
   it("searches body and metadata and supports multiple terms", () => {
-    expect(searchArticles(all, "polarity")).toHaveLength(2);
+    expect(searchArticles(drafts, "polarity")).toHaveLength(2);
     expect(
       searchArticles(all, "compression drums").some(
         (a) => a.slug === "compress-drums-without-losing-punch",

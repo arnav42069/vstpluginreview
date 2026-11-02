@@ -1,7 +1,10 @@
 import articles from "../generated/articles.json";
 import { visibleArticles, type Article } from "./content-schema";
 export const siteUrl = new URL(
-  process.env.SITE_URL || "https://vstpluginreview.com",
+  process.env.SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://vstpluginreview.vercel.app"),
 ).origin;
 export const production = process.env.VERCEL_ENV
   ? process.env.VERCEL_ENV === "production"

@@ -3,6 +3,17 @@ import path from "node:path";
 import matter from "gray-matter";
 import { Callout, ProductMention, LinkCard } from "../src/components/Editorial";
 import { evaluate } from "@mdx-js/mdx";
+import {
+  ArticleImage,
+  PluginReviewSection,
+  PluginFeatureList,
+  ProsCons,
+  TutorialSteps,
+  ResponsiveTable,
+  PluginComparisonTable,
+  EditorialDisclosure,
+  AudioComparisonPlayer,
+} from "../src/components/Publishing";
 import * as runtime from "react/jsx-runtime";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -39,9 +50,37 @@ for (const file of files) {
   });
   const html = renderToStaticMarkup(
     createElement(compiled.default, {
-      components: { Callout, ProductMention, LinkCard },
+      components: {
+        Callout,
+        ProductMention,
+        LinkCard,
+        ArticleImage,
+        PluginReviewSection,
+        PluginFeatureList,
+        ProsCons,
+        TutorialSteps,
+        PluginComparisonTable,
+        EditorialDisclosure,
+        AudioComparisonPlayer,
+        table: ResponsiveTable,
+      },
     }),
   );
+  for (const [, src] of html.matchAll(/<(?:img|audio)[^>]+src="([^"]+)"/g)) {
+    if (!src.startsWith("/media/") || src.includes(".."))
+      throw Error(`Invalid article media: ${src}`);
+    await fs.access(path.join("public", src));
+  }
+  for (const [image] of html.matchAll(/<img[^>]*>/g)) {
+    if (
+      !/alt="[^"]+"/.test(image) ||
+      !/width="[1-9][0-9]*"/.test(image) ||
+      !/height="[1-9][0-9]*"/.test(image)
+    )
+      throw Error(
+        `Article images require alt text and stable dimensions: ${file}`,
+      );
+  }
   const headings = [...html.matchAll(/<h2 id="([^"]+)">(.*?)<\/h2>/g)].map(
     (m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, "") }),
   );
@@ -49,7 +88,7 @@ for (const file of files) {
     ...meta,
     html,
     headings,
-    excerpt: body.replace(/[#*\[\]()`]/g, "").slice(0, 220),
+    excerpt: meta.excerpt ?? body.replace(/[#*\[\]()`]/g, "").slice(0, 220),
     readingMinutes:
       meta.readingMinutes ?? Math.ceil(body.split(/\s+/).length / 220),
   });

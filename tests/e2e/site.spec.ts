@@ -44,12 +44,12 @@ test("all five previews, metadata, related links and search", async ({
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/preview");
-  await expect(page.locator(".card")).toHaveCount(5);
-  await page.getByRole("searchbox").fill("polarity");
-  await expect(page.locator(".card")).toHaveCount(2);
+  await expect(page.locator(".card")).toHaveCount(9);
+  await page.getByRole("searchbox").fill("arbitrary sample offsets");
+  await expect(page.locator(".card")).toHaveCount(1);
   await page.getByRole("searchbox").fill("");
   await page.getByLabel("Experience").selectOption("Beginner");
-  await expect(page.locator(".card")).toHaveCount(2);
+  await expect(page.locator(".card")).toHaveCount(5);
   for (const slug of slugs) {
     await page.goto("/preview/articles/" + slug);
     await expect(page.locator(".prose")).toBeVisible();
@@ -123,7 +123,7 @@ test("SSR content works without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:3100/preview");
-  await expect(page.locator(".card")).toHaveCount(5);
+  await expect(page.locator(".card")).toHaveCount(9);
   await page.goto("http://127.0.0.1:3100/preview/articles/" + slugs[0]);
   await expect(page.locator(".prose")).toContainText(
     "Start with a clean oscillator",

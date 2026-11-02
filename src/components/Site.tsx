@@ -1,3 +1,5 @@
+import { ThemeSettings } from "./ThemeSettings";
+import { ArticleHeader, ArticleTableOfContents } from "./ArticlePresentation";
 import { Arrow } from "./Arrow";
 import { AudioPlayer, AudioABComparison, YouTubeEmbed } from "./Media";
 import { useEffect, useState } from "react";
@@ -82,13 +84,41 @@ export function seo(path: string, d?: Data) {
       { property: "og:description", content: description },
       { property: "og:type", content: a ? "article" : "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: `${d.siteUrl}/og.png` },
+      {
+        property: "og:image",
+        content: `${d.siteUrl}${a?.heroImage ?? "/og.png"}`,
+      },
+      {
+        property: "og:image:alt",
+        content:
+          a?.heroAlt ?? "VST Plugin Review — evidence, sound and workflow",
+      },
       { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
+      { property: "og:image:height", content: a?.heroImage ? "675" : "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { name: "twitter:image", content: `${d.siteUrl}/og.png` },
+      {
+        name: "twitter:image",
+        content: `${d.siteUrl}${a?.heroImage ?? "/og.png"}`,
+      },
+      { name: "twitter:image:alt", content: a?.heroAlt ?? "VST Plugin Review" },
+      ...(a && a.status === "published"
+        ? [
+            {
+              property: "article:published_time",
+              content: a.date + "T00:00:00+05:30",
+            },
+            ...(a.updated
+              ? [
+                  {
+                    property: "article:modified_time",
+                    content: a.updated + "T00:00:00+05:30",
+                  },
+                ]
+              : []),
+          ]
+        : []),
       ...(d.verification
         ? [{ name: "google-site-verification", content: d.verification }]
         : []),
@@ -141,14 +171,24 @@ function Card({
   return (
     <article className="card">
       <div className={`card-art art-${index % 3}`}>
-        <Wave />
+        {a.heroImage ? (
+          <img
+            src={a.heroImage}
+            alt={a.heroAlt ?? ""}
+            width="1200"
+            height="675"
+            loading="lazy"
+          />
+        ) : (
+          <Wave />
+        )}
         <span>{a.category}</span>
         <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
       </div>
       <div className="card-body">
         <div className="meta">
           {a.skillLevel} <span>·</span> {a.readingMinutes} MIN READ{" "}
-          {preview && <strong>PREVIEW</strong>}
+          {preview && a.status !== "published" && <strong>DRAFT</strong>}
         </div>
         <h3>
           <a href={`${preview ? "/preview" : ""}/articles/${a.slug}`}>
@@ -169,6 +209,176 @@ function Card({
     </article>
   );
 }
+function RelatedArticles({
+  articles,
+  preview = false,
+  title = "Keep the session moving",
+}: {
+  articles: Article[];
+  preview?: boolean;
+  title?: string;
+}) {
+  if (!articles.length) return null;
+  return (
+    <section>
+      <div className="section-heading">
+        <h2>{title}</h2>
+      </div>
+      <div className="card-grid">
+        {articles.map((a, i) => (
+          <Card key={a.slug} a={a} index={i} preview={preview} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function EditorialHome({ articles }: { articles: Article[] }) {
+  const latest = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+  const featured =
+    latest.find((a) => a.slug === "kick-drum-synthesis-guide") ??
+    latest.find((a) => a.featured) ??
+    latest[0];
+  const reviews = latest.filter(
+    (a) => a.category === "Plugin Guides" && !a.tags.includes("free plugins"),
+  );
+  const tutorials = latest.filter((a) => a.category !== "Plugin Guides");
+  const free = latest.filter((a) => a.tags.includes("free plugins"));
+  return (
+    <>
+      <section className="editorial-intro">
+        <span className="eyebrow">AN AZAZEL AUDIO PUBLICATION</span>
+        <h1>
+          Better tools.
+          <br />
+          <em>More deliberate music.</em>
+        </h1>
+        <p>
+          Practical production guides, thoughtful plugin comparisons, and a
+          closer look at how sound works.
+        </p>
+      </section>
+      {featured && (
+        <section className="featured-story" aria-labelledby="featured-title">
+          <a
+            className="featured-art"
+            href={`/articles/${featured.slug}`}
+            tabIndex={-1}
+            aria-hidden="true"
+          >
+            {featured.heroImage ? (
+              <img
+                src={featured.heroImage}
+                alt=""
+                width="1200"
+                height="675"
+                fetchPriority="high"
+              />
+            ) : (
+              <Wave />
+            )}
+          </a>
+          <div className="featured-copy">
+            <span className="eyebrow">
+              FEATURED STORY / {featured.category}
+            </span>
+            <h2 id="featured-title">
+              <a href={`/articles/${featured.slug}`}>{featured.title}</a>
+            </h2>
+            <p>{featured.description}</p>
+            <div className="meta">
+              {featured.readingMinutes} MIN READ · {featured.skillLevel}
+            </div>
+            <a className="text-link" href={`/articles/${featured.slug}`}>
+              Read the full guide <Arrow />
+            </a>
+          </div>
+        </section>
+      )}
+      <section>
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">FROM THE EDITORIAL DESK</span>
+            <h2>Latest articles</h2>
+          </div>
+          <a href="/articles">
+            All articles <Arrow />
+          </a>
+        </div>
+        {latest.length ? (
+          <div className="card-grid">
+            {latest.slice(0, 3).map((a, i) => (
+              <Card key={a.slug} a={a} index={i} />
+            ))}
+          </div>
+        ) : (
+          <p>Our next issue is being prepared.</p>
+        )}
+      </section>
+      <section className="editorial-section">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">FIND YOUR NEXT TOOL</span>
+            <h2>Plugin reviews & comparisons</h2>
+          </div>
+          <a href="/reviews">
+            Browse guides <Arrow />
+          </a>
+        </div>
+        <p className="section-description">
+          Documented capabilities, practical use cases and clear limitations.
+          These guides are based on official specifications, with no claimed
+          hands-on tests or popularity rankings.
+        </p>
+        <div className="card-grid">
+          {reviews.map((a, i) => (
+            <Card key={a.slug} a={a} index={i} />
+          ))}
+        </div>
+      </section>
+      <RelatedArticles
+        articles={tutorials}
+        title="Tutorials & educational guides"
+      />
+      <RelatedArticles articles={free} title="Build a free plugin toolkit" />
+      <section className="topics">
+        <span className="eyebrow">EXPLORE BY TOPIC</span>
+        {categories.map((c, i) => (
+          <a key={c.slug} href={`/categories/${c.slug}`}>
+            <span>0{i + 1}</span>
+            <h2>{c.label}</h2>
+            <p>{c.description}</p>
+            <b aria-hidden="true">
+              <Arrow />
+            </b>
+          </a>
+        ))}
+      </section>
+      <section className="principles">
+        <div>
+          <span className="eyebrow">OUR EDITORIAL STANDARD</span>
+          <h2>
+            Evidence, sound,
+            <br />
+            and workflow over hype.
+          </h2>
+        </div>
+        <div>
+          <p>
+            Azazel Audio owns this publication. We label affiliated coverage,
+            link to official sources, and distinguish documented features from
+            actual testing.
+          </p>
+          <a className="text-link" href="/editorial-policy">
+            Read our editorial policy <Arrow />
+          </a>
+        </div>
+      </section>
+      <Newsletter />
+    </>
+  );
+}
+
 function Wave() {
   return (
     <svg viewBox="0 0 600 240" fill="none" aria-hidden="true">
@@ -198,7 +408,10 @@ function Directory({ path, data }: { path: string; data: Data }) {
     );
   if (path === "/tutorials")
     list = list.filter((a) => a.category !== "Plugin Guides");
-  if (path === "/reviews") list = [];
+  if (path === "/reviews")
+    list = list.filter(
+      (a) => a.category === "Plugin Guides" && !a.tags.includes("free plugins"),
+    );
   list = searchArticles(list, query)
     .filter(
       (a) =>
@@ -218,7 +431,7 @@ function Directory({ path, data }: { path: string; data: Data }) {
         <h1>{data.preview ? "Editorial preview" : titleFor(path)}</h1>
         <p>
           {data.preview
-            ? "Five complete drafts, awaiting fact-checking and publication approval."
+            ? "Published guides and five original drafts. Drafts remain clearly marked and excluded from public feeds."
             : (categories.find((c) => path.endsWith(c.slug))?.description ??
               "Practical knowledge for deliberate production decisions.")}
         </p>
@@ -295,7 +508,7 @@ function Directory({ path, data }: { path: string; data: Data }) {
     </>
   );
 }
-function ArticleView({ a, data }: { a: Article; data: Data }) {
+export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const update = () => {
@@ -329,19 +542,7 @@ function ArticleView({ a, data }: { a: Article; data: Data }) {
         <a href={data.preview ? "/preview" : "/articles"}>Articles</a> /{" "}
         <span>{a.category}</span>
       </nav>
-      <header className="article-heading">
-        <span className="eyebrow">
-          {a.category} / {a.skillLevel}
-        </span>
-        <h1>{a.title}</h1>
-        <p>{a.description}</p>
-        <div className="meta">
-          <a href="/authors/azazel-audio-editorial">{a.author}</a> ·{" "}
-          {a.readingMinutes} MIN READ ·{" "}
-          {data.preview ? "UNPUBLISHED — DATE PENDING" : `Published ${a.date}`}
-          {!data.preview && a.updated && ` · Updated ${a.updated}`}
-        </div>
-      </header>
+      <ArticleHeader article={a} unpublished={a.status !== "published"} />
       <div className="disclosure">
         {a.disclosures} <a href="/disclosures">Full disclosure</a>
       </div>
@@ -357,16 +558,7 @@ function ArticleView({ a, data }: { a: Article; data: Data }) {
         </figure>
       )}
       <div className="reading-layout">
-        <aside className="toc">
-          <span className="eyebrow">IN THIS GUIDE</span>
-          <nav aria-label="Table of contents">
-            {a.headings.map((h) => (
-              <a key={h.id} href={`#${h.id}`}>
-                {h.text}
-              </a>
-            ))}
-          </nav>
-        </aside>
+        <ArticleTableOfContents headings={a.headings} />
         <article
           className="prose"
           onClick={(e) => {
@@ -385,7 +577,7 @@ function ArticleView({ a, data }: { a: Article; data: Data }) {
         />
       </div>
       {a.sources.length > 0 && (
-        <section>
+        <section className="article-sources">
           <h2>Sources</h2>
           <ul>
             {a.sources.map((s) => (
@@ -408,25 +600,14 @@ function ArticleView({ a, data }: { a: Article; data: Data }) {
         </h2>
         <p>
           The editorial team of Azazel Audio. Product ownership is disclosed;
-          these educational drafts do not represent independent hands-on
-          reviews.
+          this specification-based coverage and educational guidance do not
+          represent independent hands-on reviews.
         </p>
         <a href="/contact">
           Suggest a correction <Arrow />
         </a>
       </div>
-      {related.length > 0 && (
-        <section>
-          <div className="section-heading">
-            <h2>Keep the session moving</h2>
-          </div>
-          <div className="card-grid">
-            {related.map((b, i) => (
-              <Card key={b.slug} a={b} preview={data.preview} index={i} />
-            ))}
-          </div>
-        </section>
-      )}
+      <RelatedArticles articles={related} preview={data.preview} />
     </>
   );
 }
@@ -463,14 +644,35 @@ function Info({ path, data }: { path: string; data: Data }) {
               We distinguish verified vendor specifications, editorial analysis,
               and firsthand observations. A genuine review must document the
               tested version, host, operating system, methodology and
-              limitations. No supplied launch article is a hands-on review.
+              limitations. Our current guides use official documentation and
+              educational analysis; they do not claim hands-on testing.
+            </p>
+            <h2>How we select products</h2>
+            <p>
+              We select tools to illustrate distinct production needs:
+              transparent dynamics, character, synthesis, modulation and
+              practical free workflows. Order is editorial organization, not a
+              measured performance ranking. We identify free editions, paid
+              upgrades and restrictions separately.
+            </p>
+            <h2>Verification and updates</h2>
+            <p>
+              Product features, availability and licensing are checked against
+              the linked official developer pages. Each new guide records its
+              source-check date. Pricing and compatibility can change; where a
+              fact cannot be established we say so, omit the claim, and direct
+              readers to the developer. Recommendations are reviewed when
+              documentation, products or material reader corrections change.
             </p>
             <h2>Publication and corrections</h2>
             <p>
               Drafts require human fact-checking and approval. Publication dates
               reflect actual publication, not draft creation. Material
               corrections are noted with the date and reason. AI assisted the
-              site implementation; editorial drafts require human review.
+              site implementation, research and article drafting. This
+              assistance does not constitute product testing. The five original
+              drafts remain unpublished; the four new guides are published at
+              the owner's request with source and evidence limits disclosed.
             </p>
             <h2>Commercial independence</h2>
             <p>
@@ -508,6 +710,12 @@ function Info({ path, data }: { path: string; data: Data }) {
               accounts or functioning email collection. Search runs in your
               browser. Our hosting provider may process technical request logs
               for service delivery and security under its own policies.
+            </p>
+            <h2>Your theme preference</h2>
+            <p>
+              Choosing Light or Dark in Settings stores only that preference in
+              your browser's localStorage. It is not sent to an analytics
+              service. Light is the default until you choose otherwise.
             </p>
             <h2>External services</h2>
             <p>
@@ -683,6 +891,9 @@ export function Site({ path, data }: { path: string; data: Data }) {
           name: "VST Plugin Review",
           parentOrganization: { "@type": "Organization", name: "Azazel Audio" },
         },
+        ...(article.heroImage
+          ? { image: data.siteUrl + article.heroImage }
+          : {}),
         mainEntityOfPage: data.siteUrl + "/articles/" + article.slug,
       }
     : {
@@ -713,6 +924,7 @@ export function Site({ path, data }: { path: string; data: Data }) {
           <a href="/tutorials">Tutorials</a>
           <a href="/reviews">Reviews</a>
           <a href="/free-tools">Free tools</a>
+          <ThemeSettings />
         </nav>
         <a className="header-search" href="/articles">
           Search{" "}
@@ -729,133 +941,9 @@ export function Site({ path, data }: { path: string; data: Data }) {
       )}
       <main id="main">
         {path === "/" ? (
-          <>
-            <section className="hero">
-              <div className="hero-copy">
-                <span className="eyebrow">
-                  <span className="status-dot" /> THE PRODUCER'S READING ROOM
-                </span>
-                <h1>
-                  Find your sound.
-                  <br />
-                  <em>
-                    Cut through
-                    <br />
-                    the noise.
-                  </em>
-                </h1>
-                <p>
-                  Thoughtful plugin guides, sound design and mixing techniques.
-                  Built around the decisions that make your music better.
-                </p>
-                <div className="hero-actions">
-                  <a className="button" href="/articles">
-                    Explore the publication{" "}
-                    <span>
-                      <Arrow />
-                    </span>
-                  </a>
-                  <a className="text-link" href="/editorial-policy">
-                    Our editorial approach
-                  </a>
-                </div>
-                <div className="hero-note">
-                  AN AZAZEL AUDIO PUBLICATION <span>•</span> OWNERSHIP, ALWAYS
-                  DISCLOSED
-                </div>
-              </div>
-              <div className="hero-visual">
-                <div className="visual-label">
-                  <span>SIGNAL / 001</span>
-                  <span>THE SHAPE OF SOUND</span>
-                </div>
-                <Wave />
-                <div className="visual-footer">
-                  <span>
-                    LESS HYPE.
-                    <br />
-                    <strong>MORE INTENTION.</strong>
-                  </span>
-                  <span className="visual-plus">+</span>
-                </div>
-              </div>
-            </section>
-            <section className="topics">
-              <span className="eyebrow">FOLLOW YOUR CURIOSITY</span>
-              {categories.map((c, i) => (
-                <a key={c.slug} href={`/categories/${c.slug}`}>
-                  <span>0{i + 1}</span>
-                  <h2>{c.label}</h2>
-                  <p>{c.description}</p>
-                  <b aria-hidden="true">
-                    <Arrow />
-                  </b>
-                </a>
-              ))}
-            </section>
-            <section>
-              <div className="section-heading">
-                <div>
-                  <span className="eyebrow">FROM THE EDITORIAL DESK</span>
-                  <h2>The latest signal</h2>
-                </div>
-                <a href="/articles">
-                  All articles <Arrow />
-                </a>
-              </div>
-              {data.articles.length ? (
-                <div className="card-grid">
-                  {data.articles.slice(0, 3).map((a, i) => (
-                    <Card key={a.slug} a={a} index={i} />
-                  ))}
-                </div>
-              ) : (
-                <div className="launch-note">
-                  <span className="issue">
-                    ISSUE
-                    <br />
-                    <b>001</b>
-                  </span>
-                  <div>
-                    <h3>Our first issue is in the works.</h3>
-                    <p>
-                      We're reviewing our launch guides on kick design, low-end
-                      clarity and drum dynamics. Every article will pass an
-                      editorial check before it appears here.
-                    </p>
-                    <a href="/editorial-policy">
-                      See what goes into a guide <Arrow />
-                    </a>
-                  </div>
-                  <span className="launch-mark" aria-hidden="true">
-                    ∿
-                  </span>
-                </div>
-              )}
-            </section>
-            <section className="principles">
-              <div>
-                <span className="eyebrow">A CLEARER PERSPECTIVE</span>
-                <h2>
-                  Tools matter.
-                  <br />
-                  Your decisions matter more.
-                </h2>
-              </div>
-              <div>
-                <p>
-                  We focus on the why behind a technique, the limits of a tool,
-                  and the context that makes a comparison useful.
-                </p>
-                <a className="text-link" href="/disclosures">
-                  Transparent about our interests <Arrow />
-                </a>
-              </div>
-            </section>
-            <Newsletter />
-          </>
+          <EditorialHome articles={data.articles} />
         ) : article ? (
-          <ArticleView a={article} data={data} />
+          <ArticleLayout a={article} data={data} />
         ) : pages[path] ? (
           <Info path={path} data={data} />
         ) : (
