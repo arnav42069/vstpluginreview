@@ -23,3 +23,25 @@ VCV Rack's source-code GPL license does not give blanket rights to its artwork. 
 - https://github.com/VCVRack/Rack/blob/v2/LICENSE.md
 - https://github.com/DISTRHO/Cardinal/blob/main/docs/LICENSES.md
 - https://github.com/DISTRHO/Cardinal/blob/main/docs/LICENSE-PERMISSIONS.md
+
+## Pro-C 3 press screenshot
+
+- Source: https://www.fabfilter.com/press, download https://www.fabfilter.com/downloads/press/fabfilter-pro-c.zip.
+- Official page describes its downloadable press kits as containing relevant press releases, high-resolution logos and screenshots. Used solely to illustrate editorial coverage of FabFilter Pro-C 3, not as an endorsement or a license to redistribute the software.
+- File in archive: `FabFilter Pro-C 3 Screen Shot@2x.jpg`, 1680 × 1386. © FabFilter; all product-interface rights remain with FabFilter.
+- Local full screenshot: `articles/best-compressor-vst-plugins-2026/pro-c-3-press.webp`, WebP conversion without UI changes. Featured composition places it on a neutral background with identifying text; its colors and controls are unchanged.
+- Checked/downloaded 2026-11-02. No claim of hands-on testing or measured display data.
+
+## Dragonfly Reverb interface
+
+- Source: https://github.com/michaelwillis/dragonfly-reverb/blob/440ec7b3b3db2fec34b9f80cf4890102ca14d1c3/docs/images/dragonfly-hall-reverb/interface.png.
+- Official project README identifies Dragonfly as a free audio effect collection under GNU GPL v3; the pinned repository includes the screenshot and its blanket GPL LICENSE without a separate restriction on this image.
+- Original PNG retained as `articles/best-free-vst-plugins-2026/dragonfly-hall-original.png`; optimized WebP is `dragonfly-hall.webp`. No recoloring, control edits or interface changes. Original PNG/source repository and unmodified full `dragonfly-GPL-3.0.txt` included.
+- Attribution: Michael Willis / Dragonfly Reverb contributors. Featured collage combines Dragonfly Hall and the previously credited Surge XT image. Screenshot portions retain their respective GNU GPL v3 terms; editorial layout is original. Composition and WebP conversion are the only modifications.
+- Checked/downloaded 2026-11-02. These are official interface images, not screenshots of our testing.
+
+## Current original diagrams and fallback assets
+
+`scripts/editorial-images.py` generates the WebP mathematical charts, routing illustrations, kick-waveform fallback and compositions. Numerical signals are synthetic educational examples, not recorded demos or plugin measurements. Every original image identifies itself as a visualization. Draft article thumbnails use corresponding topic-specific charts; none of the draft statuses changed.
+
+Authentic assets still needed: permitted Ableton Live Clip View with an actual kick sample; authorized Suckerpunch and BazzISM interface screenshots; a commercially reusable VCV Rack rack/step-by-step capture. VCV-specific artwork restrictions remain as recorded above. Vital's official press kit was located at https://vital.audio/presskit/ but its image download returned HTTP 403; no alternate unlicensed copy was substituted. Valhalla Supermassive and TDR Nova images were not used without a suitable reuse basis. No fictional software GUI has been generated.

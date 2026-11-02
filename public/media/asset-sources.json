@@ -1,0 +1,214 @@
+{
+  "checked": "2026-11-02",
+  "notes": "Sources, original source binaries and full GPL licenses are documented in LICENSES.md. No generated product UI, fake DAW capture or plugin measurement is used.",
+  "assets": [
+    {
+      "asset": "/media/articles/how-to-make-a-psytrance-kick/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-bass-phase-alignment/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-edm/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-synthesizer-vs-samples/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/compress-drums-without-losing-punch/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-compressor-vst-plugins-2026/featured.webp",
+      "source": "https://www.fabfilter.com/press",
+      "credit": "FabFilter. Official Pro-C 3 press screenshot; editorial layout by VST Plugin Review.",
+      "license": "FabFilter press kit — editorial coverage",
+      "kind": "manufacturer press screenshot composition",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-compressor-vst-plugins-2026/ratio-curves.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-compressor-vst-plugins-2026/timing-envelope.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-compressor-vst-plugins-2026/parallel-routing.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-compressor-vst-plugins-2026/pro-c-3-press.webp",
+      "source": "https://www.fabfilter.com/downloads/press/fabfilter-pro-c.zip",
+      "credit": "FabFilter",
+      "license": "Manufacturer press kit, editorial coverage",
+      "kind": "authentic manufacturer screenshot; WebP conversion",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-2026/featured.webp",
+      "source": "https://github.com/surge-synthesizer/surge-synthesizer.github.io/tree/688fd153c99c45b694d1f717eb4751349180f7cd",
+      "credit": "Surge Synth Team and Dragonfly Reverb contributors. Editorial composition by VST Plugin Review.",
+      "license": "GNU GPL v3 source screenshots; composition retains source attribution",
+      "kind": "collage of two authentic GPL interface screenshots",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-2026/surge-xt.webp",
+      "source": "https://github.com/surge-synthesizer/surge-synthesizer.github.io/blob/688fd153c99c45b694d1f717eb4751349180f7cd/public/images/manual-xt/Pictures/surge.png",
+      "credit": "Surge Synth Team and contributors",
+      "license": "GNU GPL v3; original PNG and full license retained",
+      "kind": "authentic official manual screenshot; WebP conversion",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-2026/eq-example.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-2026/dragonfly-hall.webp",
+      "source": "https://github.com/michaelwillis/dragonfly-reverb/blob/440ec7b3b3db2fec34b9f80cf4890102ca14d1c3/docs/images/dragonfly-hall-reverb/interface.png",
+      "credit": "Michael Willis and Dragonfly Reverb contributors",
+      "license": "GNU GPL v3; original PNG and full license retained",
+      "kind": "authentic official documentation screenshot; WebP conversion",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/best-free-vst-plugins-2026/toolkit-flow.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-drum-synthesis-guide/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-drum-synthesis-guide/pitch-decay.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-drum-synthesis-guide/amplitude-decay.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-drum-synthesis-guide/phase-example.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/kick-drum-synthesis-guide/tail-lengths.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/featured.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review. Original educational diagram; not a software screenshot.",
+      "license": "Original publication artwork",
+      "kind": "original topic-specific mathematical visualization",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/wave-shapes.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/adsr.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/audio-routing.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/patch.svg",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    },
+    {
+      "asset": "/media/articles/modular-synthesis-beginners-guide/control-routing.webp",
+      "source": "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py",
+      "credit": "VST Plugin Review",
+      "license": "Original publication artwork",
+      "kind": "original educational diagram, synthetic signal or mathematical chart; not a GUI screenshot",
+      "checked": "2026-11-02"
+    }
+  ]
+}

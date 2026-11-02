@@ -28,12 +28,28 @@ for (const file of files) {
   const { data, content } = matter(
     await fs.readFile(path.join("content/articles", file), "utf8"),
   );
-  const meta = articleSchema.parse(data);
+  const parsed = articleSchema.parse(data);
+  const meta = {
+    ...parsed,
+    heroImage: parsed.featuredImage ?? parsed.heroImage,
+    heroAlt: parsed.featuredImageAlt ?? parsed.heroAlt,
+  };
+  if (
+    meta.featuredImage &&
+    (!meta.featuredImageAlt ||
+      !meta.featuredImageCredit ||
+      !meta.featuredImageSource ||
+      !meta.featuredImageLicense)
+  )
+    throw Error(
+      `Featured image requires alt, credit, source and license: ${file}`,
+    );
   if (articles.some((a) => a.slug === meta.slug))
     throw Error(`Duplicate slug: ${meta.slug}`);
   if (meta.heroImage && !meta.heroAlt) throw Error(`Missing heroAlt: ${file}`);
   for (const asset of [
     meta.heroImage,
+    ...(meta.gallery ?? []).map((image) => image.src),
     meta.audio?.src,
     meta.audioAB?.a,
     meta.audioAB?.b,
@@ -134,6 +150,10 @@ for (const a of articles) {
       : pathname === ""
         ? a
         : undefined;
+    if (pathname.startsWith("/media/articles/") && !pathname.includes("..")) {
+      await fs.access(path.join("public", pathname));
+      continue;
+    }
     if (pathname && !target && !staticPaths.has(pathname))
       throw Error(`Broken internal link: ${href}`);
     if (anchor && target && !target.html.includes(`id="${anchor}"`))

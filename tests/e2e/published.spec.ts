@@ -37,7 +37,7 @@ test("four published guides have distinct SSR metadata, working TOCs and images"
     ).toBe(true);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
-      new RegExp(slug + "/featured.png$"),
+      new RegExp(slug + "/featured.webp$"),
     );
     const schemas = await page
       .locator('script[type="application/ld+json"]')

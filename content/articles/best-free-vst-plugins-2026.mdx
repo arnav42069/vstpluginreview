@@ -10,8 +10,6 @@ skillLevel: "Beginner"
 pluginType: "Workflow"
 status: "published"
 featured: true
-heroImage: "/media/articles/best-free-vst-plugins-2026/featured.png"
-heroAlt: "Original conceptual graphic representing a free music-production toolkit, not a plugin interface"
 relatedSlugs:
   ["best-compressor-vst-plugins-2026", "modular-synthesis-beginners-guide"]
 disclosures: "VST Plugin Review is owned by Azazel Audio. This researched toolkit is based on official documentation, not hands-on comparative testing. No affiliate links are used in this article."
@@ -29,6 +27,12 @@ sources:
   - "https://klanghelm.com/contents/products/DC1A"
   - "https://kilohearts.com/products/kilohearts_essentials"
   - "https://www.decentsamples.com/product/decent-sampler-plugin/"
+featuredImage: "/media/articles/best-free-vst-plugins-2026/featured.webp"
+featuredImageAlt: "Editorial composition of authentic Surge XT and Dragonfly Hall Reverb interfaces in their original colors"
+featuredImagePosition: "center"
+featuredImageCredit: "Surge Synth Team and Dragonfly Reverb contributors. Editorial composition by VST Plugin Review."
+featuredImageSource: "https://github.com/surge-synthesizer/surge-synthesizer.github.io/tree/688fd153c99c45b694d1f717eb4751349180f7cd"
+featuredImageLicense: "GNU GPL v3 source screenshots; composition retains source attribution"
 ---
 
 A useful free-plugin collection is small enough to understand and complete enough to finish a track. You need sound sources, a way to shape frequency balance and dynamics, a few spatial and character effects, and tools that tell you what the output is doing. You do not need five overlapping downloads for every task.
@@ -85,12 +89,14 @@ Surge XT suits a producer who wants to explore several synthesis approaches with
 Use the stable release for a project you need to reopen reliably. Experimental nightlies can be useful for testing, but keep backups and avoid treating development builds as interchangeable with the supported release. Open-source availability is a strength for transparency and community development, not a guarantee that every host configuration has been tested.
 
 <ArticleImage
-  src="/media/articles/best-free-vst-plugins-2026/surge-xt-official.png"
-  alt="Surge XT synthesizer interface with oscillator, modulation and effects controls"
+  src="/media/articles/best-free-vst-plugins-2026/surge-xt.webp"
+  alt="Authentic Surge XT interface with oscillators, filters, modulation and effects"
+  caption="Surge XT from the official manual. Full controls remain visible in the enlarged image."
+  credit="Surge Synth Team and contributors"
+  source="https://github.com/surge-synthesizer/surge-synthesizer.github.io/tree/688fd153c99c45b694d1f717eb4751349180f7cd"
+  license="GNU GPL v3; license and original source preserved"
   width={1601}
   height={998}
-  caption="Surge XT interface from the official user manual; illustrative interface, not a hands-on test."
-  credit="Surge Synth Team and contributors, GNU GPL v3. See media licensing notes."
 />
 
 ## Dexed: an approachable route into DX-style FM
@@ -112,6 +118,17 @@ A static EQ changes a frequency region consistently. A dynamic EQ band can reduc
 **Try this:** locate a harsh region with a modest bell, return it toward a sensible level, and enable dynamics for that band. Lower its threshold only until loud notes trigger useful control. Avoid setting every band to move merely because the feature exists.
 
 **Limitation:** a spectrum peak is not automatically a fault. Constant correction can remove the musical identity of a source. Use broad static balance first and reserve dynamic processing for a problem you can identify by ear.
+
+<ArticleImage
+  src="/media/articles/best-free-vst-plugins-2026/eq-example.webp"
+  alt="Illustrative equalizer response with a low-mid cut and broad upper-mid lift"
+  caption="An educational response curve, not a plugin measurement or a preset recommendation."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## Two different free compressors: Kotelnikov and DC1A
 
@@ -145,6 +162,21 @@ OTT is useful when you want conspicuous multiband dynamics shaping, not merely a
 
 **Limitation:** it cannot repair a badly balanced patch automatically. If every synth requires heavy multiband correction, revisit oscillator levels, filtering and arrangement. Save installer versions and render important parts before changing a working project's plugin installation.
 
+### Dragonfly Reverb: another open-source spatial option
+
+[Dragonfly Reverb](https://michaelwillis.github.io/dragonfly-reverb/) is an open-source GPL-licensed reverb collection. Its official documentation shows separate hall, room, plate and early-reflection interfaces. The authentic Hall interface below illustrates predelay, decay and filtering controls; the image is not a report of a listening test. Check the project’s current releases and format support before installation.
+
+<ArticleImage
+  src="/media/articles/best-free-vst-plugins-2026/dragonfly-hall.webp"
+  alt="Authentic Dragonfly Hall Reverb interface with predelay, decay, filter and modulation controls"
+  caption="Dragonfly Hall Reverb from the official project documentation, shown without recoloring."
+  credit="Dragonfly Reverb contributors"
+  source="https://github.com/michaelwillis/dragonfly-reverb/tree/440ec7b3b3db2fec34b9f80cf4890102ca14d1c3"
+  license="GNU GPL v3; license and original PNG preserved"
+  width={920}
+  height={345}
+/>
+
 ## Kilohearts Essentials: distortion, delay and focused building blocks
 
 [Kilohearts Essentials](https://kilohearts.com/products/kilohearts_essentials) is explicitly free with an account. Its current page lists a collection of effects including Distortion, Delay, Dual Delay, Reverb, Compressor, filters and modulation tools. These work as regular DAW plugins; compatible paid Kilohearts hosts are separate products. An account-based free bundle is not a free license to the entire ecosystem.
@@ -172,6 +204,17 @@ For beginners, small focused effects can make cause and effect easier to hear th
 This fills a different role from a synthesizer: a sampled piano, unusual acoustic texture or percussion instrument can add an organic source to an electronic arrangement. **Try this:** choose one legitimately free library, play a short phrase, and shape note lengths and velocity before reaching for effects. Keep the library folder intact so its sample references remain valid.
 
 **Limitation:** the free player does not make every commercial library free, and a compatible file format does not establish permission to redistribute its samples. Record the library author and license with your project. If your DAW already includes a reliable sampler and the sounds you need, another player is optional.
+
+<ArticleImage
+  src="/media/articles/best-free-vst-plugins-2026/toolkit-flow.webp"
+  alt="Suggested free production workflow showing synth, EQ, dynamics, meter and a reverb send"
+  caption="One small toolkit connected as a production chain. This is an original routing diagram."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## A beginner workflow that uses the tools together
 

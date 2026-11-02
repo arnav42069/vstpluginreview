@@ -1,4 +1,22 @@
 import { z } from "zod";
+const localImage = z
+  .string()
+  .regex(/^\/media\/articles\/[a-zA-Z0-9/_-]+\.(?:webp|avif|png|jpe?g|svg)$/);
+const imagePosition = z
+  .string()
+  .regex(/^(?:center|top|bottom|left|right|(?:\d{1,2}|100)% (?:\d{1,2}|100)%)$/)
+  .default("center");
+export const galleryImageSchema = z.object({
+  src: localImage,
+  alt: z.string().min(8),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  caption: z.string().optional(),
+  credit: z.string().optional(),
+  source: z.url().optional(),
+  license: z.string().optional(),
+  position: imagePosition,
+});
 export const articleSchema = z.object({
   title: z.string().min(10),
   description: z.string().min(20),
@@ -38,6 +56,13 @@ export const articleSchema = z.object({
     })
     .optional(),
   readingMinutes: z.number().positive().optional(),
+  featuredImage: localImage.optional(),
+  featuredImageAlt: z.string().min(8).optional(),
+  featuredImagePosition: imagePosition,
+  featuredImageCredit: z.string().optional(),
+  featuredImageSource: z.url().optional(),
+  featuredImageLicense: z.string().optional(),
+  gallery: z.array(galleryImageSchema).max(20).optional(),
   heroImage: z.string().optional(),
   heroAlt: z.string().optional(),
   seoTitle: z.string().optional(),

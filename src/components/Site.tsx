@@ -1,3 +1,4 @@
+import { ArticleGallery, ImageLightbox } from "./EditorialImages";
 import { ThemeSettings } from "./ThemeSettings";
 import { ArticleHeader, ArticleTableOfContents } from "./ArticlePresentation";
 import { Arrow } from "./Arrow";
@@ -174,6 +175,7 @@ function Card({
         {a.heroImage ? (
           <img
             src={a.heroImage}
+            style={{ objectPosition: a.featuredImagePosition }}
             alt={a.heroAlt ?? ""}
             width="1200"
             height="675"
@@ -269,6 +271,7 @@ function EditorialHome({ articles }: { articles: Article[] }) {
             {featured.heroImage ? (
               <img
                 src={featured.heroImage}
+                style={{ objectPosition: featured.featuredImagePosition }}
                 alt=""
                 width="1200"
                 height="675"
@@ -548,13 +551,36 @@ export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
       </div>
       {a.heroImage && (
         <figure className="article-hero">
-          <img
-            src={a.heroImage}
-            alt={a.heroAlt ?? ""}
-            width="1200"
-            height="675"
-            fetchPriority="high"
-          />
+          <a
+            href={a.heroImage}
+            data-enlarge-image=""
+            data-image-alt={a.heroAlt}
+            data-image-credit={a.featuredImageCredit}
+            aria-label={`Enlarge image: ${a.heroAlt}`}
+          >
+            <img
+              src={a.heroImage}
+              alt={a.heroAlt ?? ""}
+              width="1200"
+              height="675"
+              fetchPriority="high"
+              style={{ objectPosition: a.featuredImagePosition }}
+            />
+          </a>
+          {a.featuredImageCredit && (
+            <figcaption>
+              {a.featuredImageCredit} · {a.featuredImageLicense}
+              {a.featuredImageSource && (
+                <>
+                  {" "}
+                  ·{" "}
+                  <a href={a.featuredImageSource} rel="noopener noreferrer">
+                    Image source
+                  </a>
+                </>
+              )}
+            </figcaption>
+          )}
         </figure>
       )}
       <div className="reading-layout">
@@ -576,6 +602,7 @@ export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+      <ArticleGallery images={a.gallery} />
       {a.sources.length > 0 && (
         <section className="article-sources">
           <h2>Sources</h2>
@@ -905,6 +932,7 @@ export function Site({ path, data }: { path: string; data: Data }) {
       };
   return (
     <>
+      <ImageLightbox />
       <a className="skip-link" href="#main">
         Skip to content
       </a>

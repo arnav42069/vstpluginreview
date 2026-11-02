@@ -13,8 +13,6 @@ featured: true
 relatedSlugs:
   ["modular-synthesis-beginners-guide", "best-compressor-vst-plugins-2026"]
 disclosures: "Suckerpunch is developed by Azazel Audio, the company that owns VST Plugin Review. This section is affiliated editorial coverage. Product discussion is documentation-based, not independently tested or ranked."
-heroImage: "/media/articles/kick-drum-synthesis-guide/featured.png"
-heroAlt: "Original educational graphic illustrating a kick drum's pitch drop and decaying waveform"
 sources:
   [
     "https://www.azazelaudio.com/suckerpunch",
@@ -22,6 +20,12 @@ sources:
     "https://www.sonicacademy.com/products/kick-3",
     "https://vcvrack.com/manual/GettingStarted",
   ]
+featuredImage: "/media/articles/kick-drum-synthesis-guide/featured.webp"
+featuredImageAlt: "Original DAW-neutral synthetic kick waveform showing a short transient and decaying tail, not an Ableton screenshot"
+featuredImagePosition: "center"
+featuredImageCredit: "VST Plugin Review. Original educational diagram; not a software screenshot."
+featuredImageSource: "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+featuredImageLicense: "Original publication artwork"
 ---
 
 Kick drum synthesis is the process of generating a bass drum sound from oscillators, envelopes and other signal processing rather than beginning with a finished recording. A simple kick can come from a sine wave whose pitch drops quickly while its level fades. A convincing production sound also depends on timing, harmonic balance and the space left for the bassline.
@@ -38,6 +42,17 @@ The apparent impact of a kick comes from their relationship. A loud click on a w
 
 Acoustic drums involve membranes, resonances and microphone capture. Electronic kicks do not need to reproduce all that complexity to perform the same rhythmic role. A controlled pitch descent, a clear amplitude shape and selected harmonics can establish an effective bass drum without an acoustic model.
 
+<ArticleImage
+  src="/media/articles/kick-drum-synthesis-guide/pitch-decay.webp"
+  alt="Synthetic kick frequency falling rapidly toward a 50 hertz body"
+  caption="A synthetic pitch trajectory. Starting values depend on the actual track."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
+
 ## Fundamental frequency and pitch decay
 
 A steady sine has one frequency. A synthesized kick usually moves from a higher initial frequency toward a lower settling region. That downward trajectory creates the characteristic transition from attack to bass body. It is more informative to ask where the pitch settles, and for how long, than to assign the entire kick a single note.
@@ -45,6 +60,17 @@ A steady sine has one frequency. A synthesized kick usually moves from a higher 
 As a learning exercise, use a body around 50–60 Hz and an initial frequency around 150–200 Hz. Let the sweep finish over several tens of milliseconds, then adjust by ear. These values are only starting points. A different genre, playback system or bass pattern may call for a different register and shape.
 
 Pitch curves matter. A straight line measured in hertz is different from a straight line measured in semitones. A curve that changes quickly near the beginning and settles smoothly can create a different attack from one that stays high then drops abruptly. Move one intermediate point at a time if your synthesizer provides breakpoint editing.
+
+<ArticleImage
+  src="/media/articles/kick-drum-synthesis-guide/amplitude-decay.webp"
+  alt="Smooth synthetic kick amplitude onset followed by an exponential tail"
+  caption="Original amplitude-envelope illustration, not a plugin screenshot."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## Amplitude is an independent design problem
 
@@ -104,6 +130,17 @@ Clipping can reduce peaks, yet driving a long low-frequency waveform heavily may
 
 Distortion before an amplitude envelope is not always equivalent to distortion afterward. In one arrangement, the envelope shapes the distorted signal; in another, changing level feeds the distortion differently over time. Try both when your setup allows it, keep the output matched, and save the version that serves the mix.
 
+<ArticleImage
+  src="/media/articles/kick-drum-synthesis-guide/phase-example.webp"
+  alt="Two pairs of sine waves illustrating reinforcement and cancellation"
+  caption="Ideal sine waves clarify the principle; kick and bass signals are more complex."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
+
 ## Phase alignment and kick–bass separation
 
 Polarity inversion flips positive and negative samples. A time offset moves the signal. Neither operation guarantees alignment across a kick's changing frequency and a bassline's changing notes. There is no universal sample offset that makes every low end work.
@@ -111,6 +148,17 @@ Polarity inversion flips positive and negative samples. A time offset moves the 
 Start with musical timing and envelopes. Shorten competing tails, delay an early bass onset where the groove allows it, or choose complementary registers. Then try polarity or small timing changes as controlled comparisons. Recheck several notes and hits, because a setting that reinforces one moment can weaken another.
 
 Avoid selecting an offset from waveform appearance alone. An oscilloscope can reveal timing and consistency, but the sum is what matters. Monitor in context at a stable level and preserve your original version. If a bass patch changes substantially, reassess the relationship instead of assuming the old adjustment remains correct.
+
+<ArticleImage
+  src="/media/articles/kick-drum-synthesis-guide/tail-lengths.webp"
+  alt="Three synthetic kick tail lengths compared over 360 milliseconds"
+  caption="Choose duration in context rather than assigning a fixed value to a genre."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## Techno kick exercise: weight without endless sub
 

@@ -8,6 +8,10 @@ export type ArticleImageProps = {
   height: number;
   caption?: string;
   credit?: string;
+  source?: string;
+  license?: string;
+  position?: string;
+  enlarge?: boolean;
 };
 function assertLocalAsset(src: string) {
   if (!src.startsWith("/media/") || src.startsWith("//") || src.includes(".."))
@@ -20,29 +24,63 @@ export function ArticleImage({
   height,
   caption,
   credit,
+  source,
+  license,
+  position = "center",
+  enlarge = true,
 }: ArticleImageProps) {
   assertLocalAsset(src);
   if (!alt.trim() || width <= 0 || height <= 0)
     throw Error("Article images require descriptive alt text and dimensions");
+  const image = (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      style={{ objectPosition: position }}
+    />
+  );
   return (
     <figure className="article-image">
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading="lazy"
-        decoding="async"
-      />
-      {(caption || credit) && (
+      {enlarge ? (
+        <a
+          href={src}
+          data-enlarge-image=""
+          data-image-alt={alt}
+          data-image-caption={caption}
+          data-image-credit={credit}
+          aria-label={`Enlarge image: ${alt}`}
+        >
+          {image}
+        </a>
+      ) : (
+        image
+      )}
+      {(caption || credit || license || source) && (
         <figcaption>
           {caption}
-          {credit && <small> {credit}</small>}
+          <small className="image-provenance">
+            {credit}
+            {license && ` · ${license}`}
+            {source?.startsWith("https://") && (
+              <>
+                {" "}
+                ·{" "}
+                <a href={source} rel="noopener noreferrer">
+                  Image source
+                </a>
+              </>
+            )}
+          </small>
         </figcaption>
       )}
     </figure>
   );
 }
+
 export function PluginReviewSection({
   title,
   officialUrl,

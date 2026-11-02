@@ -57,3 +57,5 @@ The Playwright suite uses `/usr/bin/chromium` by default in this cloud machine. 
 See [publishing, media, environment and Vercel instructions](docs/PUBLISHING.md) and [.env.example](.env.example). Newsletter and analytics remain unconnected; the newsletter clearly states it is not accepting subscriptions. The deployment domain, editorial approval, vendor fact-checking and any future provider credentials remain owner actions.
 
 See [redesign delivery and research notes](docs/REDESIGN.md) for the new articles, theme behavior and verification limits.
+
+See [editorial imagery, provenance and remaining screenshot needs](docs/IMAGERY.md) for image metadata, full-image enlargement, authoring and source-manifest instructions.

@@ -12,8 +12,6 @@ status: "published"
 featured: true
 relatedSlugs: ["kick-drum-synthesis-guide", "best-free-vst-plugins-2026"]
 disclosures: "VST Plugin Review is owned by Azazel Audio. This is a documentation-based educational guide, not a claim of hands-on product testing."
-heroImage: "/media/articles/modular-synthesis-beginners-guide/featured.png"
-heroAlt: "Original diagram of oscillator, filter and VCA audio connections with pitch, gate and envelope modulation routes"
 sources:
   [
     "https://vcvrack.com/Rack",
@@ -24,6 +22,12 @@ sources:
     "https://cardinal.kx.studio/",
     "https://store.cherryaudio.com/bundles/voltage-modular-nucleus",
   ]
+featuredImage: "/media/articles/modular-synthesis-beginners-guide/featured.webp"
+featuredImageAlt: "Original modular synthesis schematic with orange audio connections, blue amplitude CV and purple cutoff modulation"
+featuredImagePosition: "center"
+featuredImageCredit: "VST Plugin Review. Original educational diagram; not a software screenshot."
+featuredImageSource: "https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+featuredImageLicense: "Original publication artwork"
 ---
 
 Modular synthesis turns the inside of a synthesizer into a set of connections you can see and change. Instead of accepting an instrument's fixed oscillator-to-filter path, you choose sound sources, processors and controllers, then connect them with patch cables. The reward is understanding: when a note is too bright, too long or unexpectedly silent, you can trace the actual cause.
@@ -47,6 +51,17 @@ Start by separating the **audio path**, which you hear, from the **control path*
 A VCA's audio input accepts the sound to be controlled. Its CV input accepts a signal that changes the gain. Patching an envelope into the audio input instead of the CV input is a different operation, and usually will not create the note shape you intended. Read socket labels before connecting anything.
 
 This distinction is a learning aid rather than a hard wall. Audio-rate modulation is fundamental to many synthesis techniques. You can deliberately send an oscillator into a frequency modulation input, for example. Learn the ordinary signal path first so experiments are choices rather than accidental wiring errors.
+
+<ArticleImage
+  src="/media/articles/modular-synthesis-beginners-guide/wave-shapes.webp"
+  alt="Mathematical sine, saw, square and triangle waveforms in four panels"
+  caption="Original ideal waveforms. These are not sampled software outputs."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## The essential modules
 
@@ -76,6 +91,17 @@ An ADSR envelope describes four stages. **Attack** moves upward after the gate b
 
 A short attack, moderate decay, low sustain and short release makes a plucked shape. A longer attack and release makes a swelling pad. If a very short gate ends during the attack, the envelope may never reach its peak. Diagnose the timing of the controller as well as the envelope settings.
 
+<ArticleImage
+  src="/media/articles/modular-synthesis-beginners-guide/adsr.webp"
+  alt="ADSR diagram with attack, decay, sustain level and release labeled"
+  caption="An idealized ADSR envelope. Sustain is the held level, not a length of time."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
+
 ### LFOs, gates and triggers
 
 A low-frequency oscillator produces repeating motion. A slow sine can gently move cutoff; a square can switch between two states. Depth matters as much as speed. A modest movement around a useful base cutoff is often more controllable than sweeping across the entire filter range.
@@ -91,6 +117,17 @@ Start with Free for this tutorial. Do not buy Pro simply to learn cable routing.
 [Cardinal](https://cardinal.kx.studio/) is a free, open-source alternative with standalone and several plugin formats. Its modules are bundled rather than loaded from the external VCV Library, so a Rack patch that uses a particular third-party module may not transfer directly. Choose it for its documented self-contained approach, not an assumption that every Rack extension will work.
 
 [Voltage Modular Nucleus](https://store.cherryaudio.com/bundles/voltage-modular-nucleus) is Cherry Audio's free introductory collection. Its official page lists 22 modules and over 130 presets. Paid collections expand that environment; Nucleus should not be confused with an unrestricted entitlement to every Voltage Modular module. Installation and account requirements belong to Cherry Audio's current download process.
+
+<ArticleImage
+  src="/media/articles/modular-synthesis-beginners-guide/audio-routing.webp"
+  alt="Oscillator, filter, VCA and output connected with an orange audio path"
+  caption="Audio chain for steps 3–6, drawn as functional blocks rather than a software interface."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ## Build your first VCV Rack patch
 
@@ -135,6 +172,17 @@ The intended chain is **VCO saw → VCF audio input → VCA audio input → Audi
 ### 7. Connect pitch and gate
 
 Configure MIDI-CV for your controller, or select the computer keyboard driver described in VCV's [Core module manual](https://vcvrack.com/manual/Core). Connect V/OCT to the oscillator's pitch input and GATE to ADSR's gate input. These two cables have different jobs: changing the played note should change pitch; holding it should keep the gate active.
+
+<ArticleImage
+  src="/media/articles/modular-synthesis-beginners-guide/control-routing.webp"
+  alt="Pitch and gate controls feeding an oscillator, envelope and VCA"
+  caption="Follow control signals separately from the audible path."
+  credit="VST Plugin Review — original educational illustration"
+  source="https://github.com/arnav42069/vstpluginreview/blob/main/scripts/editorial-images.py"
+  license="Original publication artwork"
+  width={1600}
+  height={900}
+/>
 
 ### 8. Use ADSR to shape amplitude
 
