@@ -113,7 +113,7 @@ test("keyboard navigation, frequency tool and honest subscription state", async 
   await page.keyboard.press("Tab");
   await expect(page.getByText("Skip to content")).toBeFocused();
   await expect(
-    page.getByRole("button", { name: "Coming after editorial launch" }),
+    page.getByRole("button", { name: "Subscriptions not open yet" }),
   ).toBeDisabled();
   await page.goto("/free-tools");
   await page.getByLabel("MIDI note").fill("69");

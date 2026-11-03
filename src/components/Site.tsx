@@ -161,7 +161,7 @@ function Newsletter() {
           placeholder="Not accepting email addresses yet"
           disabled
         />
-        <button disabled>Coming after editorial launch</button>
+        <button disabled>Subscriptions not open yet</button>
         <small>No information is collected by this form.</small>
       </div>
     </section>
@@ -744,18 +744,18 @@ function Info({ path, data }: { path: string; data: Data }) {
           <>
             <h2>Evidence before claims</h2>
             <p>
-              We distinguish verified vendor specifications, editorial analysis,
+              I distinguish verified vendor specifications, editorial analysis,
               and firsthand observations. A genuine review must document the
               tested version, host, operating system, methodology and
-              limitations. Our current guides use official documentation and
+              limitations. The current guides use official documentation and
               educational analysis; they do not claim hands-on testing.
             </p>
-            <h2>How we select products</h2>
+            <h2>How I select products</h2>
             <p>
-              We select tools to illustrate distinct production needs:
+              I select tools to illustrate distinct production needs:
               transparent dynamics, character, synthesis, modulation and
               practical free workflows. Order is editorial organization, not a
-              measured performance ranking. We identify free editions, paid
+              measured performance ranking. I identify free editions, paid
               upgrades and restrictions separately.
             </p>
             <h2>Verification and updates</h2>
@@ -763,7 +763,7 @@ function Info({ path, data }: { path: string; data: Data }) {
               Product features, availability and licensing are checked against
               the linked official developer pages. Each new guide records its
               source-check date. Pricing and compatibility can change; where a
-              fact cannot be established we say so, omit the claim, and direct
+              fact cannot be established I say so, omit the claim, and direct
               readers to the developer. Recommendations are reviewed when
               documentation, products or material reader corrections change.
             </p>
@@ -773,16 +773,15 @@ function Info({ path, data }: { path: string; data: Data }) {
               reflect actual publication, not draft creation. Material
               corrections are noted with the date and reason. AI assisted the
               site implementation, research and article drafting. This
-              assistance does not constitute product testing. The five original
-              drafts remain unpublished; the four new guides are published at
-              the owner's request with source and evidence limits disclosed.
+              assistance does not constitute product testing. Each article
+              identifies its sources and the limits of its evidence.
             </p>
             <h2>Commercial independence</h2>
             <p>
-              We label owned products and affiliate relationships near relevant
-              links. Commercial relationships must not determine conclusions or
-              manufacture rankings. We publish no star ratings without
-              documented review evidence.
+              I label affiliated products and commercial relationships near
+              relevant links. Commercial relationships must not determine
+              conclusions or manufacture rankings. I publish no star ratings
+              without documented review evidence.
             </p>
             <a href="/contact">Report a factual issue</a>
           </>
@@ -849,8 +848,8 @@ function Info({ path, data }: { path: string; data: Data }) {
             <p>
               Article content belongs to its respective rights holders. Product
               names identify their owners and do not imply endorsement. External
-              availability, pricing and terms may change. Contact the editorial
-              team for permission requests or corrections.
+              availability, pricing and terms may change. Contact the author for
+              permission requests or corrections.
             </p>
           </>
         )}
@@ -877,7 +876,7 @@ function Info({ path, data }: { path: string; data: Data }) {
         )}
         {path.startsWith("/authors/") && (
           <>
-            <h2>Adnan Singh</h2>
+            <h2>About the author</h2>
             <p>
               I write practical articles about music production, synthesis,
               mixing and audio plugins. My guides focus on understanding the
