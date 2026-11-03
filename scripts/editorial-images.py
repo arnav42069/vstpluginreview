@@ -47,6 +47,8 @@ finish(fig,F,'eq-example','Shape a part. Leave space for another.','Illustrative
 t=np.linspace(0,.36,16000);freq=50+125*np.exp(-t/.016);phase=2*np.pi*np.cumsum(freq)*(t[1]-t[0]);amp=(1-np.exp(-t/.0007))*np.exp(-t/.085);wave=np.sin(phase)*amp
 fig,ax=plt.subplots();ax.plot(t*1000,wave,c='#dd633e',lw=1.6);ax.fill_between(t*1000,wave,0,color='#e9a585',alpha=.3);ax.axhline(0,c='#b6ada2',lw=.8);ax.set(xlabel='Time (ms)',ylabel='Amplitude',xlim=(0,360),ylim=(-1,1));
 for start,end,label in [(0,18,'TRANSIENT'),(25,110,'BODY'),(120,340,'TAIL')]:ax.axvspan(start,end,alpha=.05,color='#dd633e');ax.text((start+end)/2,1.08,label,fontsize=12,ha='center',color='#9c4d32')
+# Dotted separators sit in the gaps between the three illustrative regions.
+for boundary in (21.5, 115): ax.axvline(boundary, color='#929a9e', linewidth=.9, linestyle=(0, (1, 3)), zorder=3)
 finish(fig,K,'featured','A kick, viewed up close.','Original DAW-neutral synthetic waveform • not an Ableton Live screenshot',bg='#fff7ec')
 fig,ax=plt.subplots();ax.plot(t*1000,freq,c='#ca5834',lw=4);ax.set(xlabel='Time (ms)',ylabel='Instantaneous frequency (Hz)',xlim=(0,180));finish(fig,K,'pitch-decay','Pitch falls. Impact remains.','Synthetic trajectory: 50 + 125 × exp(−time / 16 ms) • starting point, not a preset',bg='#fff7ed')
 fig,ax=plt.subplots();ax.plot(t*1000,amp,c='#30639d',lw=4);ax.fill_between(t*1000,amp,alpha=.12,color='#30639d');ax.set(xlabel='Time (ms)',ylabel='Amplitude envelope',xlim=(0,360),ylim=(0,1.05));finish(fig,K,'amplitude-decay','The tail is an arrangement decision.','A smooth onset and exponential decay • synthetic amplitude envelope',bg='#edf4fa')
