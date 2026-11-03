@@ -24,7 +24,7 @@ export const articleSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   date: z.iso.date(),
   updated: z.iso.date().optional(),
-  author: z.literal("Azazel Audio Editorial"),
+  author: z.literal("Adnan Singh"),
   category: z.enum(["Sound Design", "Mixing", "Plugin Guides"]),
   tags: z.array(z.string()).min(1),
   skillLevel: z.enum(["Beginner", "Intermediate", "Advanced"]),

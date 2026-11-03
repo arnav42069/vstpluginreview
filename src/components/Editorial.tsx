@@ -36,7 +36,7 @@ export function ProductMention({
       <p>{reason}</p>
       <p>
         {type === "owned"
-          ? "Ownership disclosure: Azazel Audio operates this publication and develops this product."
+          ? "Affiliation disclosure: the author is affiliated with this product. This coverage is not an independent review."
           : type === "affiliate"
             ? "Affiliate disclosure: we may earn a commission if you purchase through this link."
             : "Independent vendor link. No commercial relationship is asserted."}

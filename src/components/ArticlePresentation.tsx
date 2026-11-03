@@ -18,8 +18,8 @@ export function ArticleHeader({
       </EditorialHeading>
       <p>{a.description}</p>
       <div className="meta">
-        <a href="/authors/azazel-audio-editorial">{a.author}</a> ·{" "}
-        {a.readingMinutes} MIN READ ·{" "}
+        <a href="/authors/adnan-singh">{a.author}</a> · {a.readingMinutes} MIN
+        READ ·{" "}
         {unpublished ? (
           "UNPUBLISHED — DATE PENDING"
         ) : (

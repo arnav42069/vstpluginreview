@@ -22,7 +22,7 @@ test("public pages render and exclude unpublished content", async ({
     "/privacy",
     "/terms",
     "/contact",
-    "/authors/azazel-audio-editorial",
+    "/authors/adnan-singh",
     "/categories/mixing",
   ]) {
     const response = await page.goto(path);

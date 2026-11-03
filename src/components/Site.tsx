@@ -29,15 +29,15 @@ const pages: Record<string, [string, string]> = {
     "Useful advice. Clear evidence. Transparent interests.",
   ],
   "/disclosures": [
-    "Ownership & affiliate disclosure",
+    "Editorial & affiliate disclosure",
     "Know who is behind the recommendations.",
   ],
   "/privacy": ["Privacy", "A small footprint, with clear choices."],
   "/terms": ["Terms of use", "Educational information, used with care."],
   "/contact": ["Contact & corrections", "Help us keep the signal clear."],
-  "/authors/azazel-audio-editorial": [
-    "Azazel Audio Editorial",
-    "The editorial team of this Azazel Audio-owned publication.",
+  "/authors/adnan-singh": [
+    "Adnan Singh",
+    "Music production, sound design and plugin articles by Adnan Singh.",
   ],
   "/free-tools": [
     "The frequency desk",
@@ -77,7 +77,7 @@ export function seo(path: string, d?: Data) {
     a?.seoDescription ??
     a?.description ??
     pages[path]?.[1] ??
-    "Music production tutorials, plugin guides and transparent editorial coverage from an Azazel Audio-owned publication.";
+    "Music production tutorials, plugin guides and sound-design articles by Adnan Singh.";
   const canonical = d.siteUrl + path.replace(/^\/preview/, "");
   return {
     meta: [
@@ -94,7 +94,7 @@ export function seo(path: string, d?: Data) {
       { property: "og:url", content: canonical },
       {
         property: "og:image",
-        content: `${d.siteUrl}${a?.heroImage ?? "/og.png"}`,
+        content: `${d.siteUrl}${a?.heroImage ?? "/og-adnan-singh.png"}`,
       },
       {
         property: "og:image:alt",
@@ -108,7 +108,7 @@ export function seo(path: string, d?: Data) {
       { name: "twitter:description", content: description },
       {
         name: "twitter:image",
-        content: `${d.siteUrl}${a?.heroImage ?? "/og.png"}`,
+        content: `${d.siteUrl}${a?.heroImage ?? "/og-adnan-singh.png"}`,
       },
       { name: "twitter:image:alt", content: a?.heroAlt ?? "VST Plugin Review" },
       ...(a && a.status === "published"
@@ -278,7 +278,7 @@ function EditorialHome({ articles }: { articles: Article[] }) {
       <div className="publication-line">
         <span>THE PRODUCTION JOURNAL</span>
         <span>Sound. Technique. Perspective.</span>
-        <span>AN AZAZEL AUDIO PUBLICATION</span>
+        <span>ARTICLES BY ADNAN SINGH</span>
       </div>
       <section className="editorial-intro">
         <EditorialHeading as="h1" size="display">
@@ -441,9 +441,9 @@ function EditorialHome({ articles }: { articles: Article[] }) {
         </div>
         <div>
           <p>
-            Azazel Audio owns this publication. We label affiliated coverage,
-            link to official sources, and distinguish documented features from
-            actual testing.
+            Articles by Adnan Singh. I link to official sources, distinguish
+            documented features from actual testing, and label affiliated
+            product coverage where relevant.
           </p>
           <a className="text-link" href="/editorial-policy">
             Read our editorial policy <Arrow />
@@ -697,12 +697,12 @@ export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
       <div className="author-box">
         <span className="eyebrow">WRITTEN BY</span>
         <h2>
-          <a href="/authors/azazel-audio-editorial">Azazel Audio Editorial</a>
+          <a href="/authors/adnan-singh">Adnan Singh</a>
         </h2>
         <p>
-          The editorial team of Azazel Audio. Product ownership is disclosed;
-          this specification-based coverage and educational guidance do not
-          represent independent hands-on reviews.
+          Adnan Singh writes about music production, synthesis and practical
+          plugin workflows. These guides distinguish documented features from
+          hands-on testing; relevant product relationships are disclosed.
         </p>
         <a href="/contact">
           Suggest a correction <Arrow />
@@ -726,14 +726,16 @@ function Info({ path, data }: { path: string; data: Data }) {
           <>
             <h2>Decisions you can hear.</h2>
             <p>
-              We cover music production, sound design, and the tools that help
-              producers work with intention. Our publication is owned and
-              operated by Azazel Audio, developer of Suckerpunch and VisualComp.
+              I’m Adnan Singh. I write about music production, sound design, and
+              the tools that help producers work with intention. VST Plugin
+              Review brings those articles, tutorials and plugin guides
+              together.
             </p>
             <p>
-              Ownership creates a commercial interest. We disclose it wherever
-              relevant, distinguish education from testing, and do not disguise
-              promotion as independent evaluation.
+              I distinguish educational guidance and documentation-based
+              comparisons from hands-on testing. When I cover a product with
+              which I have a commercial relationship, I disclose that connection
+              beside the relevant coverage.
             </p>
             <a href="/editorial-policy">How our editorial process works</a>
           </>
@@ -787,12 +789,13 @@ function Info({ path, data }: { path: string; data: Data }) {
         )}
         {path === "/disclosures" && (
           <>
-            <h2>Azazel Audio owns this publication</h2>
+            <h2>Product relationships</h2>
             <p>
-              Azazel Audio develops Suckerpunch and VisualComp and has a
-              commercial interest in visits to its website. Links to Azazel
-              Audio include campaign parameters that identify this publication
-              and the article.
+              Articles are written by Adnan Singh. I am affiliated with
+              Suckerpunch and VisualComp; relevant coverage carries an adjacent
+              disclosure and does not present those products as independently
+              tested or ranked. Links to affiliated products may include
+              campaign parameters identifying the publication and article.
             </p>
             <h2>Affiliate links</h2>
             <p>
@@ -860,27 +863,30 @@ function Info({ path, data }: { path: string; data: Data }) {
               personal project files.
             </p>
             <p>
-              Until a dedicated editorial inbox is configured, contact the
-              publication through the{" "}
-              <a href="https://azazelaudio.com/" rel="noopener noreferrer">
-                official Azazel Audio website
+              Send article corrections or site feedback through this
+              publication’s{" "}
+              <a
+                href="https://github.com/arnav42069/vstpluginreview/issues"
+                rel="noopener noreferrer"
+              >
+                issue tracker
               </a>
-              .
+              . Include the article URL and a source supporting the correction.
             </p>
           </>
         )}
         {path.startsWith("/authors/") && (
           <>
-            <h2>Azazel Audio Editorial</h2>
+            <h2>Adnan Singh</h2>
             <p>
-              A team attribution for the supplied educational articles. No
-              individual biography, credentials, testing history or independent
-              reviewer identity is claimed.
+              I write practical articles about music production, synthesis,
+              mixing and audio plugins. My guides focus on understanding the
+              tools and making deliberate production decisions.
             </p>
             <p>
-              The team works within an Azazel Audio-owned publication.
-              Individual author identities and testing credentials must be
-              verified before adding them.
+              Sources and product relationships are disclosed in the relevant
+              articles. Documentation-based coverage is identified separately
+              from any documented hands-on evaluation.
             </p>
             <h2>Published work</h2>
             {data.articles
@@ -983,27 +989,35 @@ export function Site({ path, data }: { path: string; data: Data }) {
             }
           : {}),
         author: {
-          "@type": "Organization",
+          "@type": "Person",
           name: article.author,
-          url: data.siteUrl + "/authors/azazel-audio-editorial",
+          url: data.siteUrl + "/authors/adnan-singh",
         },
         publisher: {
           "@type": "Organization",
           name: "VST Plugin Review",
-          parentOrganization: { "@type": "Organization", name: "Azazel Audio" },
         },
         ...(article.heroImage
           ? { image: data.siteUrl + article.heroImage }
           : {}),
         mainEntityOfPage: data.siteUrl + "/articles/" + article.slug,
       }
-    : {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "VST Plugin Review",
-        url: data.siteUrl,
-        parentOrganization: { "@type": "Organization", name: "Azazel Audio" },
-      };
+    : path === "/authors/adnan-singh"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          mainEntity: {
+            "@type": "Person",
+            name: "Adnan Singh",
+            url: data.siteUrl + "/authors/adnan-singh",
+          },
+        }
+      : {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "VST Plugin Review",
+          url: data.siteUrl,
+        };
   return (
     <>
       <ImageLightbox />
@@ -1083,7 +1097,7 @@ export function Site({ path, data }: { path: string; data: Data }) {
           <nav aria-label="Publication information">
             {[
               ["/about", "About"],
-              ["/authors/azazel-audio-editorial", "Authors"],
+              ["/authors/adnan-singh", "Authors"],
               ["/editorial-policy", "Editorial policy"],
               ["/disclosures", "Disclosures"],
               ["/contact", "Contact"],
@@ -1098,8 +1112,8 @@ export function Site({ path, data }: { path: string; data: Data }) {
           </nav>
         </div>
         <div className="footer-bottom">
-          <span>Owned and operated by Azazel Audio.</span>
-          <span>Independent thinking. Disclosed interests.</span>
+          <span>Articles by Adnan Singh.</span>
+          <span>Practical knowledge. Clear sources.</span>
         </div>
       </footer>
       <script

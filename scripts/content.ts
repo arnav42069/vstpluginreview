@@ -147,7 +147,7 @@ const staticPaths = new Set([
   "/terms",
   "/contact",
   "/disclosures",
-  "/authors/azazel-audio-editorial",
+  "/authors/adnan-singh",
   "/categories/sound-design",
   "/categories/mixing",
   "/categories/plugin-guides",

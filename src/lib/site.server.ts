@@ -26,7 +26,7 @@ export const publicPaths = [
   "/terms",
   "/contact",
   "/disclosures",
-  "/authors/azazel-audio-editorial",
+  "/authors/adnan-singh",
   "/categories/sound-design",
   "/categories/mixing",
   "/categories/plugin-guides",
@@ -52,10 +52,10 @@ export function sitemap() {
     .join("")}</urlset>`;
 }
 export function rss() {
-  return `<?xml version="1.0"?><rss version="2.0"><channel><title>VST Plugin Review</title><link>${siteUrl}</link><description>Evidence, sound, and workflow over hype.</description>${getArticles()
+  return `<?xml version="1.0"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>VST Plugin Review</title><link>${siteUrl}</link><description>Evidence, sound, and workflow over hype.</description>${getArticles()
     .map(
       (a) =>
-        `<item><title>${xml(a.title)}</title><description>${xml(a.description)}</description><link>${siteUrl}/articles/${a.slug}</link><guid>${siteUrl}/articles/${a.slug}</guid><pubDate>${new Date(a.date).toUTCString()}</pubDate></item>`,
+        `<item><title>${xml(a.title)}</title><dc:creator>${xml(a.author)}</dc:creator><description>${xml(a.description)}</description><link>${siteUrl}/articles/${a.slug}</link><guid>${siteUrl}/articles/${a.slug}</guid><pubDate>${new Date(a.date).toUTCString()}</pubDate></item>`,
     )
     .join("")}</channel></rss>`;
 }
