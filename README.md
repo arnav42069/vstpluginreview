@@ -59,3 +59,5 @@ See [publishing, media, environment and Vercel instructions](docs/PUBLISHING.md)
 See [redesign delivery and research notes](docs/REDESIGN.md) for the new articles, theme behavior and verification limits.
 
 See [editorial imagery, provenance and remaining screenshot needs](docs/IMAGERY.md) for image metadata, full-image enlargement, authoring and source-manifest instructions.
+
+The [editorial design system](docs/DESIGN-SYSTEM.md) documents typography, magazine layouts, theme tokens and validation. The reusable [$gitpush skill](.agents/skills/gitpush/SKILL.md) handles reviewed commits and normal pushes to an authorized destination.

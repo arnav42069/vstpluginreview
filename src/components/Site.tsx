@@ -1,3 +1,4 @@
+import { EditorialHeading, MetaLine } from "./Typography";
 import { ArticleGallery, ImageLightbox } from "./EditorialImages";
 import { ThemeSettings } from "./ThemeSettings";
 import { ArticleHeader, ArticleTableOfContents } from "./ArticlePresentation";
@@ -164,13 +165,17 @@ function Card({
   a,
   preview = false,
   index = 0,
+  variant = "standard",
+  showAuthor = false,
 }: {
   a: Article;
   preview?: boolean;
   index?: number;
+  variant?: "standard" | "compact" | "wide";
+  showAuthor?: boolean;
 }) {
   return (
-    <article className="card">
+    <article className={`card story-${variant}`}>
       <div className={`card-art art-${index % 3}`}>
         {a.heroImage ? (
           <img
@@ -188,15 +193,21 @@ function Card({
         <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
       </div>
       <div className="card-body">
-        <div className="meta">
-          {a.skillLevel} <span>·</span> {a.readingMinutes} MIN READ{" "}
-          {preview && a.status !== "published" && <strong>DRAFT</strong>}
-        </div>
-        <h3>
+        <MetaLine>
+          <span className="story-category">{a.category}</span>
+          <span>{a.readingMinutes} MIN READ</span>
+          {preview && a.status !== "published" ? (
+            <strong>DRAFT</strong>
+          ) : (
+            <time dateTime={a.date}>{a.date}</time>
+          )}
+          {showAuthor && <span>{a.author}</span>}
+        </MetaLine>
+        <EditorialHeading as="h3" size="story">
           <a href={`${preview ? "/preview" : ""}/articles/${a.slug}`}>
             {a.title}
           </a>
-        </h3>
+        </EditorialHeading>
         <p>{a.description}</p>
         <a
           className="text-link"
@@ -237,115 +248,153 @@ function RelatedArticles({
 
 function EditorialHome({ articles }: { articles: Article[] }) {
   const latest = [...articles].sort((a, b) => b.date.localeCompare(a.date));
-  const featured =
+  const lead =
     latest.find((a) => a.slug === "kick-drum-synthesis-guide") ??
     latest.find((a) => a.featured) ??
     latest[0];
-  const reviews = latest.filter(
+  const secondary = latest.filter((a) => a.slug !== lead?.slug).slice(0, 3);
+  const guides = latest.filter(
     (a) => a.category === "Plugin Guides" && !a.tags.includes("free plugins"),
   );
   const tutorials = latest.filter((a) => a.category !== "Plugin Guides");
   const free = latest.filter((a) => a.tags.includes("free plugins"));
   return (
     <>
+      <div className="publication-line">
+        <span>THE PRODUCTION JOURNAL</span>
+        <span>Sound. Technique. Perspective.</span>
+        <span>AN AZAZEL AUDIO PUBLICATION</span>
+      </div>
       <section className="editorial-intro">
-        <span className="eyebrow">AN AZAZEL AUDIO PUBLICATION</span>
-        <h1>
-          Better tools.
+        <EditorialHeading as="h1" size="display">
+          <span>Better tools.</span>
           <br />
           <em>More deliberate music.</em>
-        </h1>
-        <p>
-          Practical production guides, thoughtful plugin comparisons, and a
-          closer look at how sound works.
-        </p>
+        </EditorialHeading>
+        <div className="intro-aside">
+          <span className="signal-mark" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+          <p>
+            Practical production guides, thoughtful plugin comparisons, and a
+            closer look at how sound works.
+          </p>
+          <a className="text-link" href="/editorial-policy">
+            Our editorial approach <Arrow />
+          </a>
+        </div>
       </section>
-      {featured && (
+      {lead && (
         <section className="featured-story" aria-labelledby="featured-title">
           <a
             className="featured-art"
-            href={`/articles/${featured.slug}`}
+            href={`/articles/${lead.slug}`}
             tabIndex={-1}
             aria-hidden="true"
           >
-            {featured.heroImage ? (
-              <img
-                src={featured.heroImage}
-                style={{ objectPosition: featured.featuredImagePosition }}
-                alt=""
-                width="1200"
-                height="675"
-                fetchPriority="high"
-              />
-            ) : (
-              <Wave />
-            )}
+            <img
+              src={lead.heroImage}
+              style={{ objectPosition: lead.featuredImagePosition }}
+              alt=""
+              width="1200"
+              height="675"
+              fetchPriority="high"
+            />
           </a>
           <div className="featured-copy">
-            <span className="eyebrow">
-              FEATURED STORY / {featured.category}
-            </span>
-            <h2 id="featured-title">
-              <a href={`/articles/${featured.slug}`}>{featured.title}</a>
-            </h2>
-            <p>{featured.description}</p>
-            <div className="meta">
-              {featured.readingMinutes} MIN READ · {featured.skillLevel}
-            </div>
-            <a className="text-link" href={`/articles/${featured.slug}`}>
+            <span className="eyebrow">THE LEAD / {lead.category}</span>
+            <EditorialHeading id="featured-title" size="section">
+              <a href={`/articles/${lead.slug}`}>{lead.title}</a>
+            </EditorialHeading>
+            <p>{lead.description}</p>
+            <MetaLine>
+              <time dateTime={lead.date}>{lead.date}</time>
+              <span>{lead.readingMinutes} MIN READ</span>
+            </MetaLine>
+            <a className="text-link" href={`/articles/${lead.slug}`}>
               Read the full guide <Arrow />
             </a>
           </div>
         </section>
       )}
-      <section>
+      <section className="latest-section">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">FROM THE EDITORIAL DESK</span>
-            <h2>Latest articles</h2>
+            <span className="eyebrow">01 / THE EDITORIAL DESK</span>
+            <EditorialHeading>Latest articles</EditorialHeading>
           </div>
           <a href="/articles">
             All articles <Arrow />
           </a>
         </div>
-        {latest.length ? (
-          <div className="card-grid">
-            {latest.slice(0, 3).map((a, i) => (
-              <Card key={a.slug} a={a} index={i} />
+        <div className="latest-grid">
+          {secondary[0] && <Card a={secondary[0]} />}
+          <div className="latest-secondary">
+            {secondary.slice(1).map((a, i) => (
+              <Card key={a.slug} a={a} index={i + 1} variant="compact" />
             ))}
           </div>
-        ) : (
-          <p>Our next issue is being prepared.</p>
-        )}
+        </div>
       </section>
-      <section className="editorial-section">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">FIND YOUR NEXT TOOL</span>
-            <h2>Plugin reviews & comparisons</h2>
+      <section className="desk-columns">
+        <div>
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">02 / TOOLS IN CONTEXT</span>
+              <EditorialHeading>Reviews & buying guides</EditorialHeading>
+            </div>
           </div>
-          <a href="/reviews">
-            Browse guides <Arrow />
+          <p className="section-description">
+            Documented capabilities, useful comparisons, and clear limitations.
+            Specification-based coverage, with no claimed hands-on tests.
+          </p>
+          {guides.map((a) => (
+            <Card key={a.slug} a={a} variant="compact" />
+          ))}
+          <a className="text-link" href="/reviews">
+            Browse all comparisons <Arrow />
           </a>
         </div>
-        <p className="section-description">
-          Documented capabilities, practical use cases and clear limitations.
-          These guides are based on official specifications, with no claimed
-          hands-on tests or popularity rankings.
-        </p>
-        <div className="card-grid">
-          {reviews.map((a, i) => (
-            <Card key={a.slug} a={a} index={i} />
+        <div className="free-desk">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">THE OPEN TOOLKIT</span>
+              <EditorialHeading>
+                Good tools.
+                <br />
+                No entry fee.
+              </EditorialHeading>
+            </div>
+          </div>
+          {free.map((a) => (
+            <Card key={a.slug} a={a} variant="wide" showAuthor />
           ))}
         </div>
       </section>
-      <RelatedArticles
-        articles={tutorials}
-        title="Tutorials & educational guides"
-      />
-      <RelatedArticles articles={free} title="Build a free plugin toolkit" />
+      <section className="tutorial-desk">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">03 / SOUND DESIGN & TECHNIQUE</span>
+            <EditorialHeading>Learn the signal path.</EditorialHeading>
+          </div>
+          <a href="/tutorials">
+            All tutorials <Arrow />
+          </a>
+        </div>
+        <div className="story-rows">
+          {tutorials.map((a, i) => (
+            <Card key={a.slug} a={a} index={i} variant="compact" />
+          ))}
+        </div>
+      </section>
       <section className="topics">
-        <span className="eyebrow">EXPLORE BY TOPIC</span>
+        <span className="eyebrow">EXPLORE THE INDEX</span>
         {categories.map((c, i) => (
           <a key={c.slug} href={`/categories/${c.slug}`}>
             <span>0{i + 1}</span>
@@ -360,11 +409,11 @@ function EditorialHome({ articles }: { articles: Article[] }) {
       <section className="principles">
         <div>
           <span className="eyebrow">OUR EDITORIAL STANDARD</span>
-          <h2>
+          <EditorialHeading>
             Evidence, sound,
             <br />
             and workflow over hype.
-          </h2>
+          </EditorialHeading>
         </div>
         <div>
           <p>
@@ -443,6 +492,7 @@ function Directory({ path, data }: { path: string; data: Data }) {
         <label className="search">
           Search articles
           <input
+            id="article-search"
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -948,13 +998,33 @@ export function Site({ path, data }: { path: string; data: Data }) {
           </span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="/articles">Articles</a>
-          <a href="/tutorials">Tutorials</a>
-          <a href="/reviews">Reviews</a>
-          <a href="/free-tools">Free tools</a>
+          <a
+            href="/articles"
+            aria-current={path === "/articles" ? "page" : undefined}
+          >
+            Articles
+          </a>
+          <a
+            href="/tutorials"
+            aria-current={path === "/tutorials" ? "page" : undefined}
+          >
+            Tutorials
+          </a>
+          <a
+            href="/reviews"
+            aria-current={path === "/reviews" ? "page" : undefined}
+          >
+            Reviews
+          </a>
+          <a
+            href="/free-tools"
+            aria-current={path === "/free-tools" ? "page" : undefined}
+          >
+            Free tools
+          </a>
           <ThemeSettings />
         </nav>
-        <a className="header-search" href="/articles">
+        <a className="header-search" href="/articles#article-search">
           Search{" "}
           <span aria-hidden="true">
             <Arrow />

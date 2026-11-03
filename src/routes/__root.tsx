@@ -13,6 +13,20 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
     ],
     links: [
+      {
+        rel: "preload",
+        href: "/fonts/space-grotesk-700.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/inter-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
       { rel: "stylesheet", href: styles },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],

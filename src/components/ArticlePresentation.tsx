@@ -1,3 +1,4 @@
+import { EditorialHeading } from "./Typography";
 import type { Article } from "../lib/content-schema";
 
 export function ArticleHeader({
@@ -12,7 +13,9 @@ export function ArticleHeader({
       <span className="eyebrow">
         {a.category} / {a.skillLevel}
       </span>
-      <h1>{a.title}</h1>
+      <EditorialHeading as="h1" size="display">
+        {a.title}
+      </EditorialHeading>
       <p>{a.description}</p>
       <div className="meta">
         <a href="/authors/azazel-audio-editorial">{a.author}</a> ·{" "}
