@@ -79,3 +79,41 @@ test("lightbox is keyboard accessible and passes automated accessibility checks"
     page.locator(".article-hero a[data-enlarge-image]"),
   ).toBeFocused();
 });
+
+test("mobile image delivery uses smaller files and enlargement retains the original", async ({
+  page,
+  request,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const cover = page.locator(".featured-art img");
+  await expect(cover).toHaveAttribute("srcset", /480w/);
+  await expect
+    .poll(() =>
+      cover.evaluate(
+        (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  const selected = await cover.evaluate(
+    (img: HTMLImageElement) => img.currentSrc,
+  );
+  expect(selected).toContain("/responsive/");
+  const manifest = await (
+    await request.get("/media/asset-sources.json")
+  ).json();
+  expect(
+    manifest.assets.some(
+      (a: { asset: string; derivedFrom?: string }) =>
+        a.asset === new URL(selected).pathname && a.derivedFrom,
+    ),
+  ).toBe(true);
+  await page.goto("/articles/best-compressor-vst-plugins-2026");
+  const screenshot = page.locator('.prose img[src$="pro-c-3-press.webp"]');
+  await screenshot.scrollIntoViewIfNeeded();
+  await expect(screenshot).toHaveAttribute("srcset", /800w/);
+  const original = await screenshot.getAttribute("src");
+  await screenshot.click();
+  await expect(page.locator("dialog img")).toHaveAttribute("src", original!);
+  expect(original).not.toContain("/responsive/");
+});

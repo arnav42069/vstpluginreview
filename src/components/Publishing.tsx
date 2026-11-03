@@ -1,3 +1,4 @@
+import { responsiveImage } from "../lib/images";
 import type { ReactNode, TableHTMLAttributes } from "react";
 
 /** Content images are credited local assets, never invented product interfaces. */
@@ -34,7 +35,7 @@ export function ArticleImage({
     throw Error("Article images require descriptive alt text and dimensions");
   const image = (
     <img
-      src={src}
+      {...responsiveImage(src)}
       alt={alt}
       width={width}
       height={height}
