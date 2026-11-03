@@ -1,3 +1,4 @@
+import { responsiveImage } from "../lib/images";
 import { useEffect, useId, useRef, useState } from "react";
 
 export type EditorialImage = {
@@ -47,7 +48,7 @@ export function ArticleGallery({ images }: { images?: EditorialImage[] }) {
               aria-label={`Enlarge image: ${image.alt}`}
             >
               <img
-                src={image.src}
+                {...responsiveImage(image.src)}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}

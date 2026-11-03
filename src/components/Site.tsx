@@ -1,4 +1,10 @@
 import { EditorialHeading, MetaLine } from "./Typography";
+import {
+  responsiveImage,
+  cardImageSizes,
+  featuredImageSizes,
+  heroImageSizes,
+} from "../lib/images";
 import { ArticleGallery, ImageLightbox } from "./EditorialImages";
 import { ThemeSettings } from "./ThemeSettings";
 import { ArticleHeader, ArticleTableOfContents } from "./ArticlePresentation";
@@ -167,19 +173,28 @@ function Card({
   index = 0,
   variant = "standard",
   showAuthor = false,
+  imageSizes = cardImageSizes,
 }: {
   a: Article;
   preview?: boolean;
   index?: number;
   variant?: "standard" | "compact" | "wide";
   showAuthor?: boolean;
+  imageSizes?: string;
 }) {
   return (
     <article className={`card story-${variant}`}>
       <div className={`card-art art-${index % 3}`}>
         {a.heroImage ? (
           <img
-            src={a.heroImage}
+            {...responsiveImage(
+              a.heroImage,
+              variant === "compact"
+                ? "(max-width: 767px) 100px, 150px"
+                : variant === "wide"
+                  ? "(max-width: 767px) 110px, (max-width: 1100px) 45vw, 600px"
+                  : imageSizes,
+            )}
             style={{ objectPosition: a.featuredImagePosition }}
             alt={a.heroAlt ?? ""}
             width="1200"
@@ -298,14 +313,18 @@ function EditorialHome({ articles }: { articles: Article[] }) {
             tabIndex={-1}
             aria-hidden="true"
           >
-            <img
-              src={lead.heroImage}
-              style={{ objectPosition: lead.featuredImagePosition }}
-              alt=""
-              width="1200"
-              height="675"
-              fetchPriority="high"
-            />
+            {lead.heroImage ? (
+              <img
+                {...responsiveImage(lead.heroImage, featuredImageSizes)}
+                style={{ objectPosition: lead.featuredImagePosition }}
+                alt=""
+                width="1200"
+                height="675"
+                fetchPriority="high"
+              />
+            ) : (
+              <Wave />
+            )}
           </a>
           <div className="featured-copy">
             <span className="eyebrow">THE LEAD / {lead.category}</span>
@@ -334,7 +353,12 @@ function EditorialHome({ articles }: { articles: Article[] }) {
           </a>
         </div>
         <div className="latest-grid">
-          {secondary[0] && <Card a={secondary[0]} />}
+          {secondary[0] && (
+            <Card
+              a={secondary[0]}
+              imageSizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 50vw, 640px"
+            />
+          )}
           <div className="latest-secondary">
             {secondary.slice(1).map((a, i) => (
               <Card key={a.slug} a={a} index={i + 1} variant="compact" />
@@ -609,7 +633,7 @@ export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
             aria-label={`Enlarge image: ${a.heroAlt}`}
           >
             <img
-              src={a.heroImage}
+              {...responsiveImage(a.heroImage, heroImageSizes)}
               alt={a.heroAlt ?? ""}
               width="1200"
               height="675"

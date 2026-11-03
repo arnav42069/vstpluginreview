@@ -22,8 +22,10 @@ The light theme uses a nuanced gray-green canvas, softly warm surfaces, near-bla
 
 ## Verification
 
-Content validation, TypeScript, ESLint and 15 unit tests passed. The 20-browser-test suite covers 360–1440px layouts, new magazine patterns, local font loading without Google requests, search, heading visibility below the sticky masthead, comfortable text measure, both-theme automated WCAG checks, persisted preference, article metadata, draft isolation, SSR without JavaScript, image provenance/load and keyboard lightbox behavior. Node and Vercel production builds are checked before pushing.
+Content validation, TypeScript, ESLint and 15 unit tests passed. The 21-browser-test suite covers 360–1440px layouts, new magazine patterns, local font loading without Google requests, search, heading visibility below the sticky masthead, comfortable text measure, both-theme automated WCAG checks, persisted preference, article metadata, draft isolation, SSR without JavaScript, image provenance/load and keyboard lightbox behavior. Node and Vercel production builds are checked before pushing.
 
 ## Git push workflow
 
 The user-requested reusable skill is `.agents/skills/gitpush/SKILL.md`. It reviews task-owned changes, runs relevant checks, commits, verifies fast-forward ancestry, pushes only to the session-authorized destination, and checks the resulting deployment. It prohibits force pushes, unrelated staging, secret inclusion and unverified deployment claims.
+
+The newer responsive-image delivery commit on main was integrated before pushing. Its srcset manifests, optimized image variants and full-resolution enlargement were preserved; the new compact and featured story patterns declare matching image sizes.
