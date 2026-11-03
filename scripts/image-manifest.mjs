@@ -64,6 +64,24 @@ for (const a of articles) {
       checked: "2026-11-02",
     });
 }
+// Delivery variants keep the source image's actual attribution and reuse basis.
+const variants = JSON.parse(
+  fs.readFileSync("src/lib/image-variants.json", "utf8"),
+);
+for (const [originalAsset, image] of Object.entries(variants)) {
+  const source = assets.get(originalAsset);
+  if (!source)
+    throw Error(`Responsive source is missing provenance: ${originalAsset}`);
+  for (const variant of image.variants) {
+    if (variant.src === originalAsset) continue;
+    assets.set(variant.src, {
+      ...source,
+      asset: variant.src,
+      derivedFrom: originalAsset,
+      kind: `Responsive WebP resize; ${source.kind}`,
+    });
+  }
+}
 fs.writeFileSync(
   "public/media/asset-sources.json",
   JSON.stringify(

@@ -1,3 +1,4 @@
+import imageVariants from "../src/lib/image-variants.json";
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
@@ -24,6 +25,18 @@ const files = (await fs.readdir("content/articles"))
   .filter((f) => f.endsWith(".mdx"))
   .sort();
 const articles: Article[] = [];
+for (const [source, image] of Object.entries(imageVariants)) {
+  for (const candidate of image.variants) {
+    if (
+      !candidate.src.startsWith("/media/articles/") ||
+      candidate.src.includes("..") ||
+      candidate.width > image.width
+    )
+      throw Error(`Invalid responsive image candidate for ${source}`);
+    await fs.access(path.join("public", candidate.src));
+  }
+}
+
 for (const file of files) {
   const { data, content } = matter(
     await fs.readFile(path.join("content/articles", file), "utf8"),

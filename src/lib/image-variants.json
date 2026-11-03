@@ -1,0 +1,540 @@
+{
+  "/media/articles/best-compressor-vst-plugins-2026/featured.webp": {
+    "width": 1200,
+    "height": 675,
+    "variants": [
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/featured.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "/media/articles/best-compressor-vst-plugins-2026/parallel-routing.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/parallel-routing-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/parallel-routing-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/parallel-routing-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/parallel-routing.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/best-compressor-vst-plugins-2026/pro-c-3-press.webp": {
+    "width": 1680,
+    "height": 1386,
+    "variants": [
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/pro-c-3-press-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/pro-c-3-press-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/pro-c-3-press-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/pro-c-3-press.webp",
+        "width": 1680
+      }
+    ]
+  },
+  "/media/articles/best-compressor-vst-plugins-2026/ratio-curves.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/ratio-curves-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/ratio-curves-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/ratio-curves-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/ratio-curves.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/best-compressor-vst-plugins-2026/timing-envelope.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/timing-envelope-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/timing-envelope-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/responsive/timing-envelope-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-compressor-vst-plugins-2026/timing-envelope.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-2026/dragonfly-hall.webp": {
+    "width": 920,
+    "height": 345,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/dragonfly-hall-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/dragonfly-hall-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/dragonfly-hall.webp",
+        "width": 920
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-2026/eq-example.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/eq-example-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/eq-example-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/eq-example-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/eq-example.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-2026/featured.webp": {
+    "width": 1200,
+    "height": 675,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/featured.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-2026/surge-xt.webp": {
+    "width": 1601,
+    "height": 998,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/surge-xt-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/surge-xt-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/surge-xt-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/surge-xt.webp",
+        "width": 1601
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-2026/toolkit-flow.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/toolkit-flow-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/toolkit-flow-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/responsive/toolkit-flow-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-2026/toolkit-flow.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/best-free-vst-plugins-edm/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/best-free-vst-plugins-edm/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-edm/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-edm/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/best-free-vst-plugins-edm/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/compress-drums-without-losing-punch/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/compress-drums-without-losing-punch/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/compress-drums-without-losing-punch/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/compress-drums-without-losing-punch/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/compress-drums-without-losing-punch/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/how-to-make-a-psytrance-kick/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/how-to-make-a-psytrance-kick/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/how-to-make-a-psytrance-kick/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/how-to-make-a-psytrance-kick/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/how-to-make-a-psytrance-kick/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-bass-phase-alignment/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-bass-phase-alignment/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-bass-phase-alignment/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-bass-phase-alignment/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-bass-phase-alignment/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-drum-synthesis-guide/amplitude-decay.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/amplitude-decay-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/amplitude-decay-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/amplitude-decay-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/amplitude-decay.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-drum-synthesis-guide/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-drum-synthesis-guide/phase-example.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/phase-example-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/phase-example-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/phase-example-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/phase-example.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-drum-synthesis-guide/pitch-decay.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/pitch-decay-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/pitch-decay-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/pitch-decay-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/pitch-decay.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-drum-synthesis-guide/tail-lengths.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/tail-lengths-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/tail-lengths-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/responsive/tail-lengths-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-drum-synthesis-guide/tail-lengths.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/kick-synthesizer-vs-samples/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/kick-synthesizer-vs-samples/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/kick-synthesizer-vs-samples/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/kick-synthesizer-vs-samples/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/kick-synthesizer-vs-samples/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/modular-synthesis-beginners-guide/adsr.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/adsr-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/adsr-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/adsr-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/adsr.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/modular-synthesis-beginners-guide/audio-routing.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/audio-routing-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/audio-routing-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/audio-routing-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/audio-routing.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/modular-synthesis-beginners-guide/control-routing.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/control-routing-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/control-routing-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/control-routing-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/control-routing.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/modular-synthesis-beginners-guide/featured.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/featured-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/featured-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/featured-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/featured.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/media/articles/modular-synthesis-beginners-guide/wave-shapes.webp": {
+    "width": 1600,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/wave-shapes-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/wave-shapes-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/responsive/wave-shapes-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/media/articles/modular-synthesis-beginners-guide/wave-shapes.webp",
+        "width": 1600
+      }
+    ]
+  }
+}

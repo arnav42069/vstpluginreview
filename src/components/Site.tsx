@@ -1,3 +1,9 @@
+import {
+  responsiveImage,
+  cardImageSizes,
+  featuredImageSizes,
+  heroImageSizes,
+} from "../lib/images";
 import { ArticleGallery, ImageLightbox } from "./EditorialImages";
 import { ThemeSettings } from "./ThemeSettings";
 import { ArticleHeader, ArticleTableOfContents } from "./ArticlePresentation";
@@ -174,7 +180,7 @@ function Card({
       <div className={`card-art art-${index % 3}`}>
         {a.heroImage ? (
           <img
-            src={a.heroImage}
+            {...responsiveImage(a.heroImage, cardImageSizes)}
             style={{ objectPosition: a.featuredImagePosition }}
             alt={a.heroAlt ?? ""}
             width="1200"
@@ -270,7 +276,7 @@ function EditorialHome({ articles }: { articles: Article[] }) {
           >
             {featured.heroImage ? (
               <img
-                src={featured.heroImage}
+                {...responsiveImage(featured.heroImage, featuredImageSizes)}
                 style={{ objectPosition: featured.featuredImagePosition }}
                 alt=""
                 width="1200"
@@ -559,7 +565,7 @@ export function ArticleLayout({ a, data }: { a: Article; data: Data }) {
             aria-label={`Enlarge image: ${a.heroAlt}`}
           >
             <img
-              src={a.heroImage}
+              {...responsiveImage(a.heroImage, heroImageSizes)}
               alt={a.heroAlt ?? ""}
               width="1200"
               height="675"

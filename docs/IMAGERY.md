@@ -37,3 +37,11 @@ Original mathematical visuals and compositions are reproducible with `python3 sc
 ## Verification
 
 Content validation, TypeScript, ESLint, 15 unit tests and 18 Playwright tests passed. Browser coverage checks every public image load and source entry, per-article figure counts, mobile overflow, keyboard lightbox opening/closing/focus return, dialog accessibility, both-theme page accessibility, metadata, SSR, publication boundaries and 360–1440px layouts. Node production build passed; Vercel output also passed with a server function and catch-all route.
+
+## Responsive delivery — 3 November 2026
+
+The existing overhaul is retained. `scripts/responsive-images.py` now creates 480px, 800px and 1200px WebP variants where smaller than the original, without cropping, recoloring or upscaling. `src/lib/image-variants.json` supplies native width candidates to cards, the featured story, article heroes, MDX figures and metadata galleries. Browsers select appropriate files using `srcset` and context-specific `sizes`; SVG diagrams safely retain their original source. All enlargement links still point to the full-resolution originals for legible plugin controls.
+
+Run the responsive generator after editing image sources, then content validation and `node scripts/image-manifest.mjs`. Build validation checks that every candidate exists. The source manifest now covers 98 original and derived asset files; derivatives inherit the source's attribution and reuse basis and identify `derivedFrom`.
+
+Content validation, typecheck, lint, 15 unit tests, production build and all 19 browser checks pass. The extra browser check verifies a mobile-selected smaller source and that opening a compressor screenshot still loads the full original. Published statuses and existing screenshot-source limitations are unchanged.
